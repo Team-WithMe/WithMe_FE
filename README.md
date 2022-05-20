@@ -4,6 +4,14 @@
 
 각자 브랜치에서 작업, 작업이 완료 되었다면 master브랜치에 PR 후 다른 개발자에게 pull 요청하기
 
+```
+// 새 브랜치 만들기
+git checkout -b "새 브랜치 이름"
+
+// 브랜치 이동
+git checkout "브랜치 이름"
+```
+
 <br />
 
 ## commit message style
