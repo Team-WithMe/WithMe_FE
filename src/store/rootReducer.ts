@@ -2,7 +2,7 @@ import { AnyAction, CombinedState, combineReducers } from 'redux';
 import { HYDRATE } from 'next-redux-wrapper';
 
 import { IRootState } from '@typings/reduxState';
-import testSlice from '@store/test/test.slice';
+import hostSlice from '@store/host/host.slice';
 
 const rootReducer = (state: IRootState, action: AnyAction): CombinedState<IRootState> => {
 	switch (action.type) {
@@ -10,7 +10,7 @@ const rootReducer = (state: IRootState, action: AnyAction): CombinedState<IRootS
 			return action.payload;
 		default: {
 			const combineReducer = combineReducers({
-				test: testSlice
+				host: hostSlice
 			});
 			return combineReducer(state, action);
 		}
