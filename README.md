@@ -2,7 +2,9 @@
 
 ## branches
 
-각자 브랜치에서 작업, 작업이 완료 되었다면 master브랜치에 PR 후 다른 개발자에게 pull 요청하기
+각자 브랜치에서 작업, 작업이 완료 되었다면 master브랜치에 PR 후 merge 요청, merge가 완료되면 `다른 개발자에게 pull 요청하기`
+<br />
+master 브랜치가 업데이트 되면 항상 pull 받아줘야 충돌이 나지 않습니다!
 
 ```
 // 새 브랜치 만들기
@@ -20,21 +22,21 @@ git checkout "브랜치 이름"
 | :-------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/100823427?v=4" width="100px" /> | <img src="https://avatars.githubusercontent.com/u/80776262?v=4" width="100px" /> | <img src="https://avatars.githubusercontent.com/u/88377392?v=4" width="100px" /> |
 
-- Lee-bonhoon: 메인 페이지, 팀 리스트, 상세 페이지
-- changyuyeo: 호스트 페이지, 마이 페이지
-- KimTeaSick: 팀 페이지 전체
+- `Lee-bonhoon`: 메인 페이지, 팀 리스트, 상세 페이지
+- `changyuyeo`: 호스트 페이지, 마이 페이지
+- `KimTeaSick`: 팀 페이지 전체
 
 <br />
 
-## Available URI
+## available URI
 
 - / : 메인 페이지
 - /host : 새로운 팀 만들기 페이지
-- ...
+- /...
 
 <br />
 
-## Skeleton
+## skeleton
 
 ```
 |-- /src
@@ -48,6 +50,8 @@ git checkout "브랜치 이름"
 |   |-- /hooks
 |   |   |-- useInput.ts
 |   |   |-- useModal.tsx
+|   |-- /hooks
+|   |   |-- staticData.ts
 |   |-- /pages
 |   |   |-- _app.tsx
 |   |   |-- _document.tsx
@@ -102,6 +106,5 @@ v16.14.2
 .env
 
 ```
-// client
 NEXT_PUBLIC_API_URL=...
 ```

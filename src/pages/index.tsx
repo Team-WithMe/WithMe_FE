@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
-import Link from 'next/link';
 
 import { CloseIcon, LikeIcon, LogoIcon, MemberIcon, MembersIcon, StartArrowIcon } from '@assets/svg/common';
-import Test from '@components/Test';
 
 const TestStyled = styled.div`
 	width: 100%;
@@ -17,10 +15,6 @@ const TestStyled = styled.div`
 const HomePage = () => {
 	return (
 		<TestStyled>
-			<Link href="/test">
-				<a style={{ fontSize: '20px' }}>TestPage 이동</a>
-			</Link>
-			<Test />
 			<div className="icons">
 				<CloseIcon />
 				<LikeIcon />
