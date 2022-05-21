@@ -50,7 +50,7 @@ git checkout "브랜치 이름"
 |   |-- /hooks
 |   |   |-- useInput.ts
 |   |   |-- useModal.tsx
-|   |-- /hooks
+|   |-- /lib
 |   |   |-- staticData.ts
 |   |-- /pages
 |   |   |-- _app.tsx
