@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-
-import Test from '@components/Test';
+import Link from 'next/link';
 
 import { CloseIcon, LikeIcon, LogoIcon, MemberIcon, MembersIcon, StartArrowIcon } from '@assets/svg/common';
+import Test from '@components/Test';
 
 const TestStyled = styled.div`
 	width: 100%;
@@ -14,10 +14,12 @@ const TestStyled = styled.div`
 	}
 `;
 
-const Home = () => {
+const HomePage = () => {
 	return (
 		<TestStyled>
-			<h1>Custom Next template</h1>
+			<Link href="/test">
+				<a style={{ fontSize: '20px' }}>TestPage 이동</a>
+			</Link>
 			<Test />
 			<div className="icons">
 				<CloseIcon />
@@ -32,4 +34,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default HomePage;

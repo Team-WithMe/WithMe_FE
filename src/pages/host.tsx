@@ -7,8 +7,8 @@ const TextStyled = styled.div`
 	color: ${({ theme }) => theme.colors.danger};
 `;
 
-const host = () => {
+const HostPage = () => {
 	return <TextStyled>{test}</TextStyled>;
 };
 
-export default host;
+export default HostPage;

@@ -14,6 +14,18 @@ git checkout "브랜치 이름"
 
 <br />
 
+## member
+
+|                    [LeeBonHoon](https://github.com/LeeBonHoon)                    |                   [changyuyeo](https://github.com/changyuyeo)                    |                   [KimTeaSick](https://github.com/KimTeaSick)                    |
+| :-------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+| <img src="https://avatars.githubusercontent.com/u/100823427?v=4" width="100px" /> | <img src="https://avatars.githubusercontent.com/u/80776262?v=4" width="100px" /> | <img src="https://avatars.githubusercontent.com/u/88377392?v=4" width="100px" /> |
+
+- Lee-bonhoon: 메인 페이지, 팀 리스트, 상세 페이지
+- changyuyeo: 호스트 페이지, 마이 페이지
+- KimTeaSick: 팀 페이지 전체
+
+<br />
+
 ## commit message style
 
 | message  | descripton                    |
@@ -47,7 +59,7 @@ yarn dev
 node -v
 
 ```
-v16.13.1
+v16.14.2
 ```
 
 .env
