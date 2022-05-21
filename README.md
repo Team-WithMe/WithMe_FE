@@ -2,8 +2,8 @@
 
 ## branches
 
-각자 브랜치에서 작업, 작업이 완료 되었다면 master브랜치에 PR 후 merge 요청, merge가 완료되면 `다른 개발자에게 pull 요청하기`
-<br />
+각자 브랜치에서 작업, 작업이 완료 되었다면 master브랜치에 PR 후 merge 요청 <br />
+merge가 완료되면 `다른 개발자에게 pull 요청하기` <br />
 master 브랜치가 업데이트 되면 항상 pull 받아줘야 충돌이 나지 않습니다!
 
 ```
