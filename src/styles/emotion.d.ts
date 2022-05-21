@@ -24,6 +24,7 @@ declare module '@emotion/react' {
 			gray_33: string;
 			gray_aa: string;
 			gray_ee: string;
+			white: string;
 		};
 		deviceSizes: {
 			mobileS: string;

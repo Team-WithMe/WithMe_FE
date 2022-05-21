@@ -22,7 +22,8 @@ const colors = {
 	gray_55: '#555',
 	gray_33: '#333',
 	gray_aa: '#aaa',
-	gray_ee: '#eee'
+	gray_ee: '#eee',
+	white: '#fff'
 };
 
 const deviceSizes = {

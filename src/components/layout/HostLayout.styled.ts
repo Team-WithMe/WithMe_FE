@@ -6,8 +6,8 @@ export const HostLayoutContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	gap: 50px;
-	max-width: 812px;
 	width: 90%;
+	max-width: 812px;
 	margin: 50px auto 0;
 
 	.host {
@@ -16,8 +16,18 @@ export const HostLayoutContainer = styled.div`
 			font-weight: 600;
 		}
 
-		&__button-group {
+		&__content {
+			width: 100%;
 			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 30px;
+		}
+
+		&__button-group {
+			width: 100%;
+			display: flex;
+			gap: 10px;
 		}
 	}
 `;
