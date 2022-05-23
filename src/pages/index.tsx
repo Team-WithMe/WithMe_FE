@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { CloseIcon, LikeIcon, LogoIcon, MemberIcon, MembersIcon, StartArrowIcon } from '@assets/svg/common';
 import Test from '@components/Test';
+import Header from '@components/Header';
 
 const TestStyled = styled.div`
 	width: 100%;
@@ -17,7 +18,8 @@ const TestStyled = styled.div`
 const HomePage = () => {
 	return (
 		<TestStyled>
-			<Link href="/test">
+			<Header />
+			{/* <Link href="/test">
 				<a style={{ fontSize: '20px' }}>TestPage 이동</a>
 			</Link>
 			<Test />
@@ -29,7 +31,7 @@ const HomePage = () => {
 				<MembersIcon />
 				<StartArrowIcon />
 			</div>
-			<img src="/img/main_intro.png" alt="main_intro" />
+			<img src="/img/main_intro.png" alt="main_intro" /> */}
 		</TestStyled>
 	);
 };
