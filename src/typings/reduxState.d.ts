@@ -1,13 +1,10 @@
-import { ITestData } from './test';
+import { HostPageNumType } from './host';
 
-export interface ITestState {
-	loading: boolean;
-	error: string | null;
-	testNum: number;
-	test: ITestData | null;
+export interface IHostState {
+	hostPageNum: HostPageNumType;
 }
 
 //* state 타입 생길 때 마다 추가 해주세요!
 export interface IRootState {
-	test: ITestState;
+	host: IHostState;
 }
