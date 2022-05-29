@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 export const HeaderWrapper = styled.div`
+	height: 80px;
+	background-color: #fff;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -13,6 +15,10 @@ export const HeaderWrapper = styled.div`
 		line-height: 24px;
 		color: #777777;
 	}
+	.header-title span {
+		margin-left: 15px;
+		cursor: pointer;
+	}
 	.button-wrapper {
 		display: flex;
 		align-items: center;
@@ -20,6 +26,6 @@ export const HeaderWrapper = styled.div`
 		width: 155px;
 		height: 44px;
 		background-color: #6c5ce7;
-		border-radius: 10px;
+		border-radius: 5px;
 	}
 `;
