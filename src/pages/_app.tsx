@@ -11,6 +11,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 		<>
 			<Head>
 				<title>쉽고 간편하게 스터디와 프로젝트 팀을 구할 수 있는 온라인 스터디 매칭 플랫폼 With Me</title>
+				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<GlobalStyle />
 			<ThemeProvider theme={theme}>

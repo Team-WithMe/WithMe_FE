@@ -28,6 +28,57 @@ git checkout "브랜치 이름"
 
 <br />
 
+## hooks
+
+### useModal 사용법
+
+```typescript
+import { FC } from 'react';
+import useModal from '@hooks/useModal';
+
+//* 모달창 안에 들어갈 컨텐츠
+const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => (
+	<div style={{ background: 'white', width: '568px', height: '400px', borderRadius: '10px', padding: '20px' }}>
+		모달 내용... <br /> <button onClick={onCloseModal}>모달창 닫기</button>
+	</div>
+);
+
+const HostPage = () => {
+	//* useModal 사용
+	//* ModalPortal: root-modal 이라는 id에 모달 랜더링 (children 으로 모달 컴포넌트 만들어서 넣어주면 됩니다.)
+	//* onCloseModal: 모달창 오픈 이벤트
+	//* onOpenModal: 모달창 닫는 이벤트
+	const { ModalPortal, onCloseModal, onOpenModal } = useModal();
+
+	return (
+		<>
+			<button onClick={onOpenModal}>모달창 열기</button>
+			<ModalPortal>
+				<TestModal onCloseModal={onCloseModal} />
+			</ModalPortal>
+		</>
+	);
+};
+
+export default HostPage;
+```
+
+- `useModal`을 사용해 ModalPortal, onCloseModal, onOpenModal을 사용해서 모달창을 관리하면 됩니다.
+- `onOpenModal` 메소드를 사용 시 모달창이 오픈되며 id가 root-modal 이라는 요소에 `ModalPortal` 컴포넌트를 랜더링 하게 됩니다. (react-portal 활용)
+- `onCloseModal` 이벤트 발생 시 해당 모달창은 닫히게 됩니다.
+- 중복되는 부분을 커스텀 훅으로 만들었으며 react portal 를 활용해 root의 바깥에서 랜더링 하기 때문에 훨씬 편리하게 사용이 가능합니다.
+
+<br />
+
+### portal를 사용해서 구현한 이유
+
+> DOM Tree 상에서의 부모-자식 간의 제약에서 자유로워지기 위해 Portal 기능을 사용하게 되는 것입니다. <br />
+> 또한, Portal에 렌더링된 자식요소는 이벤트 버블링이 반영되기 때문에 부모요소와의 통신 측면에서도 유용합니다.
+
+<a href="https://ko.reactjs.org/docs/portals.html" target="_blank" rel="noreferrer noopener">Portals 참고 문서</a>
+
+<br />
+
 ## available URI
 
 - / : 메인 페이지
