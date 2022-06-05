@@ -12,7 +12,6 @@ declare module '@emotion/react' {
 			big: string;
 			subTitleSize: string;
 			titleSize: string;
-			bigTitleSize: string;
 		};
 		colors: {
 			primary: string;
@@ -25,6 +24,7 @@ declare module '@emotion/react' {
 			gray_33: string;
 			gray_aa: string;
 			gray_ee: string;
+			white: string;
 		};
 		deviceSizes: {
 			mobileS: string;

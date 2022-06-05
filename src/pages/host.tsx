@@ -1,14 +1,7 @@
-import styled from '@emotion/styled';
-import { TestType } from '@typings/test';
+import HostLayout from '@components/layout/HostLayout';
 
-const test: TestType = 'test';
-
-const TextStyled = styled.div`
-	color: ${({ theme }) => theme.colors.danger};
-`;
-
-const host = () => {
-	return <TextStyled>{test}</TextStyled>;
+const HostPage = () => {
+	return <HostLayout>test</HostLayout>;
 };
 
-export default host;
+export default HostPage;

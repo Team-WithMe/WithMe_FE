@@ -9,8 +9,7 @@ const fontSizes = {
 	xxxl: calcRem(24),
 	big: calcRem(30),
 	subTitleSize: calcRem(35),
-	titleSize: calcRem(40),
-	bigTitleSize: calcRem(76)
+	titleSize: calcRem(40)
 };
 
 const colors = {
@@ -23,7 +22,8 @@ const colors = {
 	gray_55: '#555',
 	gray_33: '#333',
 	gray_aa: '#aaa',
-	gray_ee: '#eee'
+	gray_ee: '#eee',
+	white: '#fff'
 };
 
 const deviceSizes = {

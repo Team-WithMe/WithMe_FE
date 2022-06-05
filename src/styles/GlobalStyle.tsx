@@ -13,6 +13,7 @@ const DefaultStyle = css`
 	}
 
 	body {
+		background-color: #f8f9fd;
 		overflow-x: hidden;
 		line-height: 1.4;
 		font-family: 'Noto Sans KR', sans-serif;

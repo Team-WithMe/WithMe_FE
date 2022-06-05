@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import Test from '@components/Test';
-
 import { CloseIcon, LikeIcon, LogoIcon, MemberIcon, MembersIcon, StartArrowIcon } from '@assets/svg/common';
 
 const TestStyled = styled.div`
@@ -14,11 +12,9 @@ const TestStyled = styled.div`
 	}
 `;
 
-const Home = () => {
+const HomePage = () => {
 	return (
 		<TestStyled>
-			<h1>Custom Next template</h1>
-			<Test />
 			<div className="icons">
 				<CloseIcon />
 				<LikeIcon />
@@ -32,4 +28,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default HomePage;

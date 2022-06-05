@@ -4,7 +4,6 @@ const testHost = 'http://ec2-3-38-53-163.ap-northeast-2.compute.amazonaws.com:80
 
 const testAxios = () => {
 	const url = `${testHost}`;
-
 	return get({ url });
 };
 
