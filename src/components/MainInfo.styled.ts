@@ -21,6 +21,7 @@ export const MainInfoWrapper = styled.div`
 		line-height: 41px;
 		span {
 			color: #6c5ce7;
+			font-weight: 700;
 		}
 	}
 

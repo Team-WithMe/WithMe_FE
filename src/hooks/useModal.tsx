@@ -11,6 +11,7 @@ const Container = styled.div`
 	z-index: 11;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 
 	.background {
 		position: absolute;
@@ -23,7 +24,6 @@ const Container = styled.div`
 	.content {
 		position: absolute;
 		z-index: 11;
-		margin-top: 150px;
 
 		@media ${({ theme }) => theme.device.tabletL} {
 			margin-top: 80px;
