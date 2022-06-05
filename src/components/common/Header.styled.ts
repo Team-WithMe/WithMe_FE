@@ -19,6 +19,16 @@ export const HeaderWrapper = styled.div`
 		margin-left: 15px;
 		cursor: pointer;
 	}
+
+	.header-title-find:hover {
+		color: #6c5ce7;
+		cursor: pointer;
+	}
+
+	.header-title-comunity:hover {
+		color: #6c5ce7;
+		cursor: pointer;
+	}
 	.button-wrapper {
 		display: flex;
 		align-items: center;
@@ -27,5 +37,10 @@ export const HeaderWrapper = styled.div`
 		height: 44px;
 		background-color: #6c5ce7;
 		border-radius: 5px;
+		span {
+			color: white;
+			margin-left: 5px;
+			cursor: pointer;
+		}
 	}
 `;
