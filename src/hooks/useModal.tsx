@@ -11,6 +11,8 @@ const Container = styled.div`
 	z-index: 11;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+
 	.background {
 		position: absolute;
 		width: 100%;
@@ -18,10 +20,14 @@ const Container = styled.div`
 		background-color: rgba(0, 0, 0, 0.75);
 		z-index: 10;
 	}
+
 	.content {
 		position: absolute;
 		z-index: 11;
-		margin: 100px;
+
+		@media ${({ theme }) => theme.device.tabletL} {
+			margin-top: 80px;
+		}
 	}
 `;
 
