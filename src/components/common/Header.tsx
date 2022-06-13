@@ -142,6 +142,9 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 		});
 	};
 
+	const socialLogin = async () => {
+		return;
+	};
 	return (
 		<>
 			{changeModal === false ? (
@@ -195,7 +198,7 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 						<span>또는</span>
 						<hr />
 					</div>
-					<Button color="white" className="login-github-btn">
+					<Button color="white" className="login-github-btn" onClick={socialLogin}>
 						<img src="/img/github.png" className="github-image" />
 						Github 로그인
 					</Button>
@@ -287,7 +290,7 @@ const Header = () => {
 			<HeaderWrapper>
 				<Logo />
 				<div className="header-title">
-					<span className="header-title-find" onClick={() => router.push('/team')}>
+					<span className="header-title-find" onClick={() => router.push('/Team')}>
 						팀찾기
 					</span>
 					<span className="header-title-comunity">커뮤니티</span>
