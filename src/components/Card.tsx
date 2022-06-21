@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardWrapper } from '@src/Card.styled';
+import { CardWrapper } from '@components/Card.styled';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
@@ -162,7 +162,7 @@ const Card = () => {
 							</Link>
 							<div className="card-coment">
 								<span>{`댓글 ${item.coment}`}</span>
-								<span>{`조회수 ${item.coment}`}</span>
+								<span>{`조회수 ${item.view}`}</span>
 							</div>
 						</div>
 					</>
