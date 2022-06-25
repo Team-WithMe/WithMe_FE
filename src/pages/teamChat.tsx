@@ -1,13 +1,7 @@
-import React, { FC } from 'react'
-
+import React, { FC } from 'react';
 
 const TeamChat: FC = () => {
+	return <div></div>;
+};
 
-  return(
-    <div>
-      mmmmmmmmmmmother fucker
-    </div>
-  )
-}
-
-export default TeamChat
+export default TeamChat;
