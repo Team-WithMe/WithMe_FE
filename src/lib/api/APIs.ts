@@ -1,15 +1,28 @@
 import { get, patch, post } from './index';
 
-const testHost = 'http://ec2-3-38-53-163.ap-northeast-2.compute.amazonaws.com:8089/api/temp/test';
+const host = 'http://ec2-3-38-53-163.ap-northeast-2.compute.amazonaws.com:8089';
 
-const testAxios = () => {
-	const url = `${testHost}`;
+const signupRequest = (body: object) => {
+	const url = `${host}/api/v1/join`;
+
+	return post({ url, body });
+};
+const loginRequest = (body: object) => {
+	const url = `${host}/login`;
+
+	return post({ url, body });
+};
+
+const socialLogin = () => {
+	const url = `${host}`;
 
 	return get({ url });
 };
 
 const APIs = {
-	testAxios
+	signupRequest,
+	socialLogin,
+	loginRequest
 };
 
 export default APIs;

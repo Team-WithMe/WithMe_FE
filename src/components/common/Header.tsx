@@ -13,8 +13,8 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 	const [teamPage, setTeamPage] = useState<boolean>(true);
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
-	const [checkEmail, setCheckEmail] = useState<boolean>(true);
-	const [checkPassword, setCheckPassword] = useState<boolean>(true);
+	const [loginCheckEmail, setLoginCheckEmail] = useState<boolean>(true);
+	const [loginCheckPassword, setLoginCheckPassword] = useState<boolean>(true);
 	const [signupCheckEmail, setSignupCheckEmail] = useState<boolean>(true);
 	const [signupCheckNickName, setSignupCheckNickName] = useState<boolean>(true);
 	const [signupCheckPassword, setSignupCheckPassword] = useState<boolean>(true);
@@ -24,6 +24,12 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 	const [signupNickName, setSignupNickname] = useState<string>('');
 	const [signupPassword, setSignupPassword] = useState<string>('');
 	const [signupConfirmPassword, setSignupConfirmPassword] = useState<string>('');
+
+	const emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //이메일형식
+	const passwordReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/; // 8자 이상, 특수문자, 소문자, 숫자
+	//eslint-disable-next-line
+	const nicknameReg = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; // 닉네임 특수문자 입력 불가
+
 	const emailCheckHandler = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
 			e.preventDefault();
@@ -94,18 +100,32 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 		setSignupConfirmPassword('');
 	};
 
-	const submitHandler = async () => {
-		if (!email) {
-			setCheckEmail(false);
+	const loginSubmitHandler = async () => {
+		if (!email || email.length >= 100) {
+			setLoginCheckEmail(false);
+			return;
+		} else {
+			setLoginCheckEmail(true);
+		}
+		if (!emailReg.test(email)) {
+			setLoginCheckEmail(false);
+			alert('이메일 형식으로 작성해주세요');
 			return;
 		}
-		if (!password) {
-			setCheckPassword(false);
+		// if (!password || password.length <= 8 || password.length >= 30) {
+		// 	setLoginCheckPassword(false);
+		// 	return;
+		// }
+
+		if (!passwordReg.test(password)) {
+			setLoginCheckPassword(false);
+			alert('8자 이상, 특수문자, 소문자, 숫자가 포함');
 			return;
 		}
 
-		await APIs.testAxios()
+		await APIs.loginRequest(payload)
 			.then(res => {
+				console.log(payload);
 				alert(`반갑습니다 ${res.name}님!`);
 				resetInput();
 				onCloseModal();
@@ -116,25 +136,53 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 	};
 
 	const signupSubmitHandler = async () => {
-		if (!signupEmail) {
+		if (!signupEmail || signupEmail.length >= 100) {
+			setSignupCheckEmail(false);
+			return;
+		} else {
+			setSignupCheckEmail(true);
+		}
+
+		if (!emailReg.test(signupEmail)) {
+			alert('이메일 형식으로 입력해주세요');
 			setSignupCheckEmail(false);
 			return;
 		}
-		if (!signupNickName) {
+
+		if (!signupNickName || signupNickName.length > 8 || signupNickName.length < 2) {
 			setSignupCheckNickName(false);
 			return;
 		}
+
+		if (nicknameReg.test(signupNickName)) {
+			alert('특수문자 입력이 불가합니다');
+			setSignupCheckNickName(false);
+			return;
+		} else {
+			setSignupCheckNickName(true);
+		}
+
 		if (!signupPassword) {
 			setSignupCheckPassword(false);
 			return;
+		} else {
+			setSignupCheckPassword(true);
 		}
+
 		if (signupPassword !== signupConfirmPassword || !signupConfirmPassword) {
 			setSignupCheckConfirmPassword(false);
 			alert('비밀번호가 일치하지 않습니다.');
 			return;
+		} else {
+			setSignupCheckConfirmPassword(true);
 		}
-
-		await APIs.testAxios().then(res => {
+		const payload = {
+			email: signupEmail,
+			nickname: signupNickName,
+			password: signupPassword
+		};
+		await APIs.signupRequest(payload).then(res => {
+			console.log(res);
 			alert('방갑읍니다');
 			onCloseModal();
 			resetInput();
@@ -142,6 +190,9 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 		});
 	};
 
+	const socialLogin = async () => {
+		return;
+	};
 	return (
 		<>
 			{changeModal === false ? (
@@ -152,7 +203,7 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 					</div>
 					<div className="login-modal-title">로그인</div>
 					<div className="input-wrapper">
-						{checkEmail === true ? (
+						{loginCheckEmail === true ? (
 							<div>
 								<input placeholder="이메일" onChange={emailCheckHandler} className="login-email-input" />
 							</div>
@@ -161,7 +212,7 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 								<input placeholder="이메일" onChange={emailCheckHandler} className="login-email-input-error" />
 							</div>
 						)}
-						{checkPassword === true ? (
+						{loginCheckPassword === true ? (
 							<div>
 								<input
 									placeholder="패스워드"
@@ -181,7 +232,7 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 							</div>
 						)}
 					</div>
-					<Button color="white" className="login-btn" onClick={submitHandler}>
+					<Button color="white" className="login-btn" onClick={loginSubmitHandler}>
 						로그인
 					</Button>
 					<div className="login-sub-title">
@@ -195,7 +246,7 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 						<span>또는</span>
 						<hr />
 					</div>
-					<Button color="white" className="login-github-btn">
+					<Button color="white" className="login-github-btn" onClick={socialLogin}>
 						<img src="/img/github.png" className="github-image" />
 						Github 로그인
 					</Button>
@@ -228,11 +279,21 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 						)}
 						{signupCheckPassword === true ? (
 							<div>
-								<input placeholder="비밀번호" className="login-email-input" onChange={signupPasswordHandler} />
+								<input
+									placeholder="비밀번호"
+									className="login-email-input"
+									onChange={signupPasswordHandler}
+									type="password"
+								/>
 							</div>
 						) : (
 							<div>
-								<input placeholder="비밀번호" className="login-email-input-error" onChange={signupPasswordHandler} />
+								<input
+									placeholder="비밀번호"
+									className="login-email-input-error"
+									onChange={signupPasswordHandler}
+									type="password"
+								/>
 							</div>
 						)}
 						{signupCheckConfirmPassword === true ? (
