@@ -9,6 +9,7 @@ import TeamName from '@components/host/TeamName';
 import TeamDescription from '@components/host/TeamDescription';
 import TeamSuccess from '@components/host/TeamSuccess';
 import { RootState } from '@store/rootReducer';
+import { Button } from '@with-me/design';
 
 const HostPage = () => {
 	const { hostPageNum } = useSelector((state: RootState) => state.host);
@@ -31,6 +32,9 @@ const HostPage = () => {
 			<Card>
 				<HostComponent />
 			</Card>
+			<Button px={12} py={24}>
+				test
+			</Button>
 		</HostLayout>
 	);
 };
