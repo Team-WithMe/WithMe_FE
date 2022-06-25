@@ -8,73 +8,97 @@ import { StackModalWrapper } from './Stack.styled';
 import { CloseIcon } from '@assets/svg/common';
 import Button from '@components/common/Button';
 
-const stactArray = [
-	{
-		stack: 'react'
-	},
-	{
-		stack: 'nextjs'
-	},
-	{
-		stack: 'kubernetes'
-	},
-	{
-		stack: 'spring'
-	},
-	{
-		stack: 'HTML'
-	},
+// const stactArray = [
+// 	{
+// 		stack: 'react'
+// 	},
+// 	{
+// 		stack: 'nextjs'
+// 	},
+// 	{
+// 		stack: 'kubernetes'
+// 	},
+// 	{
+// 		stack: 'spring'
+// 	},
+// 	{
+// 		stack: 'HTML'
+// 	},
 
-	{
-		stack: 'django'
-	},
-	{
-		stack: 'javascript'
-	},
-	{
-		stack: 'typescript'
-	},
-	{
-		stack: 'nodejs'
-	},
-	{
-		stack: 'vue'
-	},
-	{
-		stack: 'java'
-	},
-	{
-		stack: 'sql'
-	},
-	{
-		stack: 'css'
-	}
-];
+// 	{
+// 		stack: 'django'
+// 	},
+// 	{
+// 		stack: 'javascript'
+// 	},
+// 	{
+// 		stack: 'typescript'
+// 	},
+// 	{
+// 		stack: 'nodejs'
+// 	},
+// 	{
+// 		stack: 'vue'
+// 	},
+// 	{
+// 		stack: 'java'
+// 	},
+// 	{
+// 		stack: 'sql'
+// 	},
+// 	{
+// 		stack: 'css'
+// 	}
+// ];
 
 const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
-	const [checked, setChecked] = useState<boolean>(false);
 	const [checkedStack, setCheckedStack] = useState<string[]>([]);
+	const [stackArray, setStackArray] = useState([
+		{
+			stack: 'react'
+		},
+		{
+			stack: 'nextjs'
+		},
+		{
+			stack: 'kubernetes'
+		},
+		{
+			stack: 'spring'
+		},
+		{
+			stack: 'HTML'
+		},
 
-	// const [state, setState] = useImmer<string[]>([]);
-	// const checkedHandler = (item: string) => {
-	// 	const result = state.find(x => {
-	// 		return x === item;
-	// 	});
-	// 	if (result) {
-	// 		setState(draft => {
-	// 			draft = draft.filter(f => {
-	// 				console.log(f);
-	// 				return f !== item;
-	// 			});
-	// 		});
-	// 	} else {
-	// 		setState(draft => {
-	// 			draft.push(item);
-	// 		});
-	// 	}
-	// };
-
+		{
+			stack: 'django'
+		},
+		{
+			stack: 'javascript'
+		},
+		{
+			stack: 'typescript'
+		},
+		{
+			stack: 'nodejs'
+		},
+		{
+			stack: 'vue'
+		},
+		{
+			stack: 'java'
+		},
+		{
+			stack: 'sql'
+		},
+		{
+			stack: 'css'
+		}
+	]);
 	const checkedHandler = (item: string) => {
+		if (checkedStack.length >= 10) {
+			return;
+		}
 		switch (item) {
 			case 'react':
 				setCheckedStack([...checkedStack, item]);
@@ -120,12 +144,10 @@ const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 		}
 	};
 	const checkedFilter = (item: string) => {
-		if (checkedStack.length >= 10) {
-			return;
-		}
 		const result = checkedStack.find(i => {
 			return i === item;
 		});
+
 		if (result) {
 			const filterdResult = checkedStack.filter(f => {
 				return f !== item;
@@ -136,21 +158,36 @@ const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 		}
 	};
 
+	const inputFilterHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const inputText = [];
+		const value = e.target.value;
+		const result = stackArray.filter(item => {
+			return value === item.stack;
+		});
+		if (result) {
+			inputText.push(result[0]?.stack);
+			setCheckedStack(inputText);
+		}
+	};
+
 	console.log(checkedStack);
 	return (
 		<StackModalWrapper>
 			<CloseIcon className="close-btn" onClick={onCloseModal} />
 			<div className="input-wrapper">
-				<input placeholder="원하는 기술스택을 검색해주세요!" className="stack-modal-input" />
+				<input
+					placeholder="원하는 기술스택을 검색해주세요!"
+					className="stack-modal-input"
+					onChange={inputFilterHandler}
+				/>
 			</div>
 			<div className="stack-modal-title">다른 기술스택을 추천해 드려요!</div>
 			<div className="stack-select-wrapper">
-				{stactArray.map((item, idx) => {
+				{stackArray.map((item, idx) => {
 					return (
 						<div className="stack-select" key={idx}>
 							<span
 								className={
-									// item.checked ? 'stack-select-click' : 'stack-select-span'
 									checkedStack.find(x => {
 										return x === item.stack;
 									})
