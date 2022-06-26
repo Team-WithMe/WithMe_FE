@@ -1518,17 +1518,17 @@
     "@typescript-eslint/types" "5.6.0"
     eslint-visitor-keys "^3.0.0"
 
-"@with-me/design@^0.3.8":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@with-me/design/-/design-0.3.8.tgz#c5440e88ebb56b978a483d72a4774eba2aa7d88b"
-  integrity sha512-JjI86B0AO2HALSxJXDkrgYrsxK2OaM++nsBgM/0RdoS9IFFCBNLPEeLDm7tiZ6gkGzGP8Qnuxvo5BU0yXYA0dg==
+"@with-me/design@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@with-me/design/-/design-0.5.0.tgz#2700e943bded61a886b115fee81519099eafed8a"
+  integrity sha512-XoVibcbE47dmTualsIMdw5uaaQZHr7fE/mLn2yxETryTNJpyJISPWMvV7EKzFrBOa7FlSHrPzhwdqg2iBKn/BA==
   dependencies:
     classnames "^2.3.1"
 
-"@with-me/styles@^0.3.6":
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/@with-me/styles/-/styles-0.3.6.tgz#f69a882ccb819facc26732d5bd7cc1e04f58995f"
-  integrity sha512-RtBXX1XZDLQIDPIO8sku67MLmqx5f7QRunVMRuqloN130EW97EfsTqDnCmYfDKFMepdJycW5L7aQcl2MG1zR0g==
+"@with-me/styles@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@with-me/styles/-/styles-0.5.0.tgz#4ab2e505b9e56a480dc0a7fc7d51ebfd49780393"
+  integrity sha512-CsUKjh18plqgkm7P2oGeWFW7pR77y73Nn/PV0UYfMeuQs8nlCJv2MHbnFfrG/HgBMfacFxjhAKhDtKZKRo19pw==
   dependencies:
     normalize-scss "^7.0.1"
 
