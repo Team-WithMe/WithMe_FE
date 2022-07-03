@@ -1,11 +1,23 @@
-<p align="middle" >
-  <img src="https://user-images.githubusercontent.com/80776262/163809264-7887e6f0-34a6-4c17-94ba-146aa371a8dc.png" width="100%" />
+<p align="middle">
+  <img src="https://user-images.githubusercontent.com/80776262/170056261-7f960215-a2af-49a5-9f90-e651f9fe1b41.png" style="width: 80%" />
 </p>
+<br />
+
+---
+
 <br />
 
 ## 📚 With Me FE
 
 📚 위드미 (With Me) 스터디 매칭 서비스 입니다.
+<br />
+<br />
+
+## 🗄 Links
+
+- <a href="https://www.npmjs.com/package/@with-me/design">WithMe 디자인 시스템 npm</a>
+- <a href="https://with-me-ui.netlify.app/">WithMe 스토리북 디자인 시스템 가이드</a>
+- <a href="https://github.com/Team-WithMe/WithMe_BE">WithMe 백엔드 레포지토리</a>
 
 <br />
 
@@ -22,10 +34,10 @@
 <br />
 
 <details>
-<summary>&nbsp;Branches</summary>
+<summary>&nbsp;🗂 Branches</summary>
 <div markdown="1">
 
-## branches
+## 🗂 branches
 
 각자 브랜치에서 작업, 작업이 완료 되었다면 master브랜치에 PR 후 merge 요청 <br />
 merge가 완료되면 `다른 개발자에게 pull 요청하기` <br />
@@ -45,8 +57,10 @@ git checkout "브랜치 이름"
 </details>
 
 <details>
-<summary>&nbsp;Hooks</summary>
+<summary>&nbsp;🪝 Hooks</summary>
 <div markdown="1">
+
+### 🪝 Hooks
 
 ### useModal 사용법
 
@@ -96,30 +110,34 @@ export default HostPage;
 <a href="https://ko.reactjs.org/docs/portals.html" target="_blank" rel="noreferrer noopener">Portals 참고 문서</a>
 <br />
 
+<br />
+
 </div>
 </details>
 
 <details>
-<summary>&nbsp;Available URI</summary>
+<summary>&nbsp;🖥 Available URI</summary>
 <div markdown="1">
+
+## 🖥 Available URI
 
 - / : 메인 페이지
 - /host : 새로운 팀 만들기 페이지
 - /...
 
+<br />
+
 </div>
 </details>
 
 <details>
-<summary>&nbsp;Skeleton</summary>
+<summary>&nbsp;📂 Skeleton</summary>
 <div markdown="1">
-<br />
+
+## 📂 Skeleton
 
 ```
 |-- /src
-| |-- /api
-| | |-- APIs.ts
-| | |-- index.ts
 | |-- /assets
 | | |-- ...
 | |-- /components
@@ -128,7 +146,8 @@ export default HostPage;
 | | |-- useInput.ts
 | | |-- useModal.tsx
 | |-- /lib
-| | |-- staticData.ts
+| | |-- /api
+| | | |-- ...
 | |-- /pages
 | | |-- \_app.tsx
 | | |-- \_document.tsx
@@ -148,9 +167,10 @@ export default HostPage;
 </details>
 
 <details>
-<summary>&nbsp;Conventional Commits</summary>
+<summary>&nbsp;📝 Conventional Commits</summary>
 <div markdown="1">
-<br />
+
+## 📝 Conventional Commits
 
 [사용 라이브러리 참고](https://www.conventionalcommits.org/ko/v1.0.0/)
 
@@ -175,11 +195,15 @@ git commit -m "feat: 유저 로그인 기능 추가"
 ```
 
 <br />
+
 Commitizen 라이브러리 사용으로 위 방법보다는 아래방법을 추천합니다.
+<br />
 
 ```
 yarn commit
 ```
+
+<br />
 
 `yarn commit` 을 해주시고 커밋의 타입, 제목, 설명 등 가이드대로 입력한 후 각각 브랜치에 push 해주시면 됩니다!
 
@@ -193,32 +217,25 @@ yarn commit
 <details>
 <summary>&nbsp;⚙ Settings</summary>
 <div markdown="1">
-<br />
 
 ## ⚙ Settings
 
 dev server
 
 ```
-
 yarn dev
-
 ```
 
 node -v
 
 ```
-
 v16.14.2
-
 ```
 
 .env
 
 ```
-
 NEXT_PUBLIC_API_URL=...
-
 ```
 
 etc...
