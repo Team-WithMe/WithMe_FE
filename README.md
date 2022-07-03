@@ -118,7 +118,11 @@ export default HostPage;
 
 <br />
 
-## commit message style
+## Conventional Commits
+
+[커밋 컨벤션 참고](https://www.conventionalcommits.org/ko/v1.0.0/)
+
+<br />
 
 | message  | descripton                                                                                   |
 | -------- | -------------------------------------------------------------------------------------------- |
