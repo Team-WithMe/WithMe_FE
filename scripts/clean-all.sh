@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 echo 'clean-all start'
 rm -rf node_modules/
