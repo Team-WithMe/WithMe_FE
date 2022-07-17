@@ -1,14 +1,19 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { Button } from '@with-me/design';
+
+import { CloseIcon } from '@assets/icons/common';
 import { HomeWrapper } from '@components/Home.styled';
-import Button from './common/Button';
-import MainInfo from './MainInfo';
-import Footer from './common/Footer';
 import useModal from '@hooks/useModal';
+import useRouterPush from '@hooks/useRouterPush';
+import Footer from './common/Footer';
 import Logo from './common/Logo';
-import { CloseIcon } from '@assets/svg/common';
+import MainInfo from './MainInfo';
 import { ModalContainer } from './Modal.styled';
+import ArrowFillIcon from '@assets/icons/common/ArrowFillIcon';
 
 const ServiceModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
+	const { onMoveToPage } = useRouterPush();
+
 	return (
 		<ModalContainer>
 			<div className="modal-logo">
@@ -22,13 +27,17 @@ const ServiceModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 					<img src="/img/select_img_1.png" />
 					<div>스터디장이신가요?</div>
 					<span>팀페이지를 만들 수 있어요!</span>
-					<Button>스터디장으로 진행하기</Button>
+					<Button bgColor="primary" onClick={onMoveToPage('host')}>
+						스터디장으로 진행하기
+					</Button>
 				</div>
 				<div className="modal-party-member">
 					<img src="/img/select_img_2.png" />
 					<div>스터디원이신가요?</div>
 					<span>모집중인 팀 페이지에서 팀을 찾아보세요!</span>
-					<Button>스터디원으로 참여하기</Button>
+					<Button bgColor="primary" onClick={onMoveToPage('team')}>
+						스터디원으로 참여하기
+					</Button>
 				</div>
 			</div>
 		</ModalContainer>
@@ -52,11 +61,9 @@ const Main = () => {
 					<div className="home-sub-title">
 						<span className="sub-title-span">위드미</span>로 함께 할 팀원을 찾아보세요!
 					</div>
-					<div className="button-wrapper">
-						<Button color="white" onClick={onOpenModal}>
-							서비스 시작하기 ▶
-						</Button>
-					</div>
+					<Button bgColor="primary" onClick={onOpenModal} px={10} py={20}>
+						서비스 시작하기 <ArrowFillIcon width="20" height="20" fill="#fff" />
+					</Button>
 				</div>
 				<div className="intro-image">
 					<img src="/img/main_intro.png" alt="main_intro" />

@@ -32,7 +32,7 @@ const HostPage = () => {
 			<Card>
 				<HostComponent />
 			</Card>
-			<Button>test</Button>
+			<Button bgColor="primary">test</Button>
 		</HostLayout>
 	);
 };
