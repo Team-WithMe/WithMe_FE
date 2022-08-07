@@ -7,9 +7,21 @@ const socialLogin = () => {
 
 	return get({ url });
 };
+const signupRequest = (body: object) => {
+	const url = `${host}/api/v1/join`;
+
+	return post({ url, body });
+};
+const loginRequest = (body: object) => {
+	const url = `${host}/login`;
+
+	return post({ url, body });
+};
 
 const APIs = {
-	socialLogin
+	socialLogin,
+	signupRequest,
+	loginRequest
 };
 
 export default APIs;

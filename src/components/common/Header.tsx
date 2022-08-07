@@ -250,6 +250,12 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 						<img src="/img/github.png" className="github-image" />
 						Github 로그인
 					</Button>
+					<Button color="white" className="login-google-btn">
+						<img src="/img/github.png" className="google-image" />
+						<a href="http://ec2-3-38-53-163.ap-northeast-2.compute.amazonaws.com:8089/oauth2/authorization/google">
+							Google 로그인
+						</a>
+					</Button>
 				</LoginModalWrapper>
 			) : (
 				<SignupModalWrapper>
