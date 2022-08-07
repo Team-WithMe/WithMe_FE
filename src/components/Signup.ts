@@ -98,6 +98,21 @@ export const SignupModalWrapper = styled.div`
 		top: 20%;
 	}
 
+	.login-google-btn {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		margin: 50px auto;
+		width: 95%;
+		background-color: #eee;
+	}
+
+	.google-image {
+		position: absolute;
+		left: 2%;
+		top: 20%;
+	}
+
 	.login-modal-title {
 		display: flex;
 		justify-content: center;
