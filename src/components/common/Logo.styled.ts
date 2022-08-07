@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { LogoIcon } from '@assets/svg/common';
+import { LogoIcon } from '@assets/icons/common';
 
 export const LogoContainer = styled.div<{ noLink?: boolean }>`
 	cursor: pointer;
@@ -37,7 +37,6 @@ export const LogoContainer = styled.div<{ noLink?: boolean }>`
 `;
 
 export const LogoIconStyled = styled(LogoIcon)`
-	fill: ${({ theme }) => theme.colors.primary};
 	width: 35px;
 	height: 35px;
 

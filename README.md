@@ -1,6 +1,45 @@
-# 📚 With Me FE
+<br />
+<p align="middle">
+  <img src="https://user-images.githubusercontent.com/80776262/170056261-7f960215-a2af-49a5-9f90-e651f9fe1b41.png" style="width: 80%" />
+</p>
+<br />
 
-## branches
+---
+
+<br />
+
+## 📚 With Me FE
+
+**위드미 (With Me)** 스터디 매칭 서비스 입니다.
+<br />
+<br />
+
+## 🗄 Links
+
+- <a href="https://www.npmjs.com/package/@with-me/design">WithMe 디자인 시스템 npm</a>
+- <a href="https://with-me-ui.netlify.app/">WithMe 스토리북 디자인 시스템 가이드</a>
+- <a href="https://github.com/Team-WithMe/WithMe_BE">WithMe 백엔드 레포지토리</a>
+
+<br />
+
+## 👨‍💻 Member
+
+|                    [LeeBonHoon](https://github.com/LeeBonHoon)                    |                   [changyuyeo](https://github.com/changyuyeo)                    |                   [KimTeaSick](https://github.com/KimTeaSick)                    |
+| :-------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+| <img src="https://avatars.githubusercontent.com/u/100823427?v=4" width="100px" /> | <img src="https://avatars.githubusercontent.com/u/80776262?v=4" width="100px" /> | <img src="https://avatars.githubusercontent.com/u/88377392?v=4" width="100px" /> |
+
+- `Lee-bonhoon`: 메인 페이지, 팀 리스트
+- `changyuyeo`: 호스트 페이지, 상세 페이지
+- `KimTeaSick`: 마이 페이지
+
+<br />
+<br />
+
+<details>
+<summary>&nbsp;🗂 Branches</summary>
+<div markdown="1">
+
+## 🗂 branches
 
 각자 브랜치에서 작업, 작업이 완료 되었다면 master브랜치에 PR 후 merge 요청 <br />
 merge가 완료되면 `다른 개발자에게 pull 요청하기` <br />
@@ -16,23 +55,18 @@ git checkout "브랜치 이름"
 
 <br />
 
-## member
+</div>
+</details>
 
-|                    [LeeBonHoon](https://github.com/LeeBonHoon)                    |                   [changyuyeo](https://github.com/changyuyeo)                    |                   [KimTeaSick](https://github.com/KimTeaSick)                    |
-| :-------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
-| <img src="https://avatars.githubusercontent.com/u/100823427?v=4" width="100px" /> | <img src="https://avatars.githubusercontent.com/u/80776262?v=4" width="100px" /> | <img src="https://avatars.githubusercontent.com/u/88377392?v=4" width="100px" /> |
+<details>
+<summary>&nbsp;🪝 Hooks</summary>
+<div markdown="1">
 
-- `Lee-bonhoon`: 메인 페이지, 팀 리스트, 상세 페이지
-- `changyuyeo`: 호스트 페이지, 마이 페이지
-- `KimTeaSick`: 팀 페이지 전체
-
-<br />
-
-## hooks
+### 🪝 Hooks
 
 ### useModal 사용법
 
-```typescript
+```tsx
 import { FC } from 'react';
 import useModal from '@hooks/useModal';
 
@@ -76,10 +110,18 @@ export default HostPage;
 > 또한, Portal에 렌더링된 자식요소는 이벤트 버블링이 반영되기 때문에 부모요소와의 통신 측면에서도 유용합니다.
 
 <a href="https://ko.reactjs.org/docs/portals.html" target="_blank" rel="noreferrer noopener">Portals 참고 문서</a>
+<br />
 
 <br />
 
-## available URI
+</div>
+</details>
+
+<details>
+<summary>&nbsp;🖥 Available URI</summary>
+<div markdown="1">
+
+## 🖥 Available URI
 
 - / : 메인 페이지
 - /host : 새로운 팀 만들기 페이지
@@ -87,38 +129,54 @@ export default HostPage;
 
 <br />
 
-## skeleton
+</div>
+</details>
+
+<details>
+<summary>&nbsp;📂 Skeleton</summary>
+<div markdown="1">
+
+## 📂 Skeleton
 
 ```
 |-- /src
-|   |-- /api
-|   |   |-- APIs.ts
-|   |   |-- index.ts
-|   |-- /assets
-|   |   |-- ...
-|   |-- /components
-|   |   |-- ...
-|   |-- /hooks
-|   |   |-- useInput.ts
-|   |   |-- useModal.tsx
-|   |-- /lib
-|   |   |-- staticData.ts
-|   |-- /pages
-|   |   |-- _app.tsx
-|   |   |-- _document.tsx
-|   |   |-- ...
-|   |-- /store
-|   |   |-- index.ts
-|   |   |-- rootReducer.ts
-|   |   |-- ...
-|   |-- /styles
-|   |-- /typings
-|   |-- ...
+| |-- /assets
+| | |-- ...
+| |-- /components
+| | |-- ...
+| |-- /hooks
+| | |-- useInput.ts
+| | |-- useModal.tsx
+| |-- /lib
+| | |-- /api
+| | | |-- ...
+| |-- /pages
+| | |-- \_app.tsx
+| | |-- \_document.tsx
+| | |-- ...
+| |-- /store
+| | |-- index.ts
+| | |-- rootReducer.ts
+| | |-- ...
+| |-- /styles
+| |-- /typings
+| |-- ...
 ```
 
 <br />
 
-## commit message style
+</div>
+</details>
+
+<details>
+<summary>&nbsp;📝 Conventional Commits</summary>
+<div markdown="1">
+
+## 📝 Conventional Commits
+
+[사용 라이브러리 참고](https://www.conventionalcommits.org/ko/v1.0.0/)
+
+<br />
 
 | message  | descripton                                                                                   |
 | -------- | -------------------------------------------------------------------------------------------- |
@@ -132,7 +190,7 @@ export default HostPage;
 
 <br />
 
-commit example
+~~commit example~~
 
 ```
 git commit -m "feat: 유저 로그인 기능 추가"
@@ -140,7 +198,29 @@ git commit -m "feat: 유저 로그인 기능 추가"
 
 <br />
 
-## ⚙ settings
+Commitizen 라이브러리 사용으로 위 방법보다는 아래방법을 추천합니다.
+<br />
+
+```
+yarn commit
+```
+
+<br />
+
+`yarn commit` 을 해주시고 커밋의 타입, 제목, 설명 등 가이드대로 입력한 후 각각 브랜치에 push 해주시면 됩니다!
+
+> yarn commit 명령어는 제일 먼저 git add를 해주기 때문에 git add 명령어는 따로 입력안해주셔도 됩니다!
+
+<br />
+
+</div>
+</details>
+
+<details>
+<summary>&nbsp;⚙ Settings</summary>
+<div markdown="1">
+
+## ⚙ Settings
 
 dev server
 
@@ -159,3 +239,15 @@ v16.14.2
 ```
 NEXT_PUBLIC_API_URL=...
 ```
+
+etc...
+
+```
+// clone 후 git hook이 정상적으로 동작하지 않는다면 다음 명령어 실행
+chmod +x .husky/pre-commit
+```
+
+<br />
+
+</div>
+</details>

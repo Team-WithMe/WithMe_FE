@@ -1,105 +1,91 @@
-import React, { FC } from 'react'
-import TeamLayout from '@components/layout/TeamLayout'
-import styled from '@emotion/styled'
-import theme from '@styles/theme'
+import React, { FC } from 'react';
+import TeamLayout from '@components/layout/TeamLayout';
+import styled from '@emotion/styled';
+import theme from '@styles/theme';
 
 const TopContent = styled.div`
-display:flex;
-`
+	display: flex;
+`;
 const Notice = styled.div`
-  width: 460px;
-  height: 300px;
-  background-color: white;
-  padding:15px;
-  border-radius: 5px; 
-  margin-right: 5px;
-  position: relative;
-`
+	width: 460px;
+	height: 300px;
+	background-color: white;
+	padding: 15px;
+	border-radius: 5px;
+	margin-right: 5px;
+	position: relative;
+`;
 const NoticeList = styled.div`
-  display: flex;
-  flex-direction: column;
-`
+	display: flex;
+	flex-direction: column;
+`;
 const TeamMember = styled.div`
-  width: 460px;
-  height: 300px;
-  padding:15px;
-  background-color: white;
-  border-radius: 5px; 
-`
+	width: 460px;
+	height: 300px;
+	padding: 15px;
+	background-color: white;
+	border-radius: 5px;
+`;
 const TeamMemberList = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-`
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+`;
 const Member = styled.div`
-  flex-basis: 33%;
-`
+	flex-basis: 33%;
+`;
 const Calinder = styled.div`
-  width: 955px;
-  height: 200px;
-  padding:15px;
-  margin-top: 5px;
-  background-color: white;
-  border-radius: 5px; 
-`
+	width: 955px;
+	height: 200px;
+	padding: 15px;
+	margin-top: 5px;
+	background-color: white;
+	border-radius: 5px;
+`;
 const ContentTitle = styled.div`
-  font-size: ${({ theme }) => theme.fontSizes.xl};
-  border-bottom: 1px solid #ddd;
-`
+	font-size: ${({ theme }) => theme.fontSizes.xl};
+	border-bottom: 1px solid #ddd;
+`;
 const PagNation = styled.div`
-  position: absolute;
-  bottom:0px;
-`
+	position: absolute;
+	bottom: 0px;
+`;
 
 const TeamPage: FC = () => {
+	return (
+		<TeamLayout>
+			<div>
+				<TopContent>
+					<Notice>
+						<ContentTitle>공지사항</ContentTitle>
+						<NoticeList>
+							<div>글 목록</div>
+							<div>글 목록</div>
+							<div>글 목록</div>
+							<div>글 목록</div>
+						</NoticeList>
+						<PagNation>페이지 네이션</PagNation>
+					</Notice>
 
-  return (
-    <TeamLayout>
-      <div>
+					<TeamMember>
+						<ContentTitle>팀원 목록</ContentTitle>
+						<TeamMemberList>
+							<Member>글 목록</Member>
+							<Member>글 목록</Member>
+							<Member>글 목록</Member>
+							<Member>글 목록</Member>
+						</TeamMemberList>
+					</TeamMember>
+				</TopContent>
 
-        <TopContent>
-          <Notice>
-            <ContentTitle>공지사항</ContentTitle>
-            <NoticeList>
-              <div>글 목록</div>
-              <div>글 목록</div>
-              <div>글 목록</div>
-              <div>글 목록</div>
-            </NoticeList>
-            <PagNation>페이지 네이션</PagNation>
-          </Notice>
+				<Calinder>
+					<ContentTitle>팀 캘린더</ContentTitle>
+					<div>글 목록</div>
+				</Calinder>
+			</div>
+		</TeamLayout>
+	);
+};
 
-          <TeamMember>
-            <ContentTitle>팀원 목록</ContentTitle>
-            <TeamMemberList>
-              <Member>
-                글 목록
-              </Member>
-              <Member>
-                글 목록
-              </Member>
-              <Member>
-                글 목록
-              </Member>
-              <Member>
-                글 목록
-              </Member>
-            </TeamMemberList>
-          </TeamMember>
-        </TopContent>
-
-
-        <Calinder>
-          <ContentTitle>팀 캘린더</ContentTitle>
-          <div>
-            글 목록
-          </div>
-        </Calinder>
-
-      </div>
-    </TeamLayout>
-  )
-}
-
-export default TeamPage
+export default TeamPage;

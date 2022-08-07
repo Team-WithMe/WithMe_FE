@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { Card } from '@with-me/design';
 
-export const HostLayoutContainer = styled.div`
+export const HostContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -30,4 +31,8 @@ export const HostLayoutContainer = styled.div`
 			gap: 10px;
 		}
 	}
+`;
+
+export const HostCard = styled(Card)`
+	width: 100%;
 `;
