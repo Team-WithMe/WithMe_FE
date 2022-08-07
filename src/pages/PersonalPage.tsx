@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import Footer from '@components/common/Footer';
 import { ProfileNoImg } from '@assets/svg/common';
+import MenuButton from '@components/PersonalPage/MenuBotton';
 
 const ContentWrapper = styled.div`
 	display: flex;
@@ -23,19 +24,12 @@ const Profile = styled.div`
 const ProfileButtonWrapper = styled.div`
 	display: flex;
 `;
-const RightBottomButtonWrapper = styled.div`
+const MenuButtonWrapper = styled.div`
 	width: 360px;
 	display: flex;
 	flex-direction: column;
 `;
-const RightBottomButton = styled.button`
-	width: 360px;
-	height: 30px;
-	background-color: white;
-	border: 1px solid #d2d2d2;
-	margin-top: 5;
-	margin-bottom: 5;
-`;
+
 const Left = styled.div`
 	width: 720px;
 	border: 1px solid #d2d2d2;
@@ -68,11 +62,11 @@ const PersonnalPage: FC = () => {
 								<button>2</button>
 							</ProfileButtonWrapper>
 						</Profile>
-						<RightBottomButtonWrapper>
-							<RightBottomButton>123</RightBottomButton>
-							<RightBottomButton>123</RightBottomButton>
-							<RightBottomButton>123</RightBottomButton>
-						</RightBottomButtonWrapper>
+						<MenuButtonWrapper>
+							<MenuButton>내팀</MenuButton>
+							<MenuButton>내 작성글</MenuButton>
+							<MenuButton>좋아요한 팀</MenuButton>
+						</MenuButtonWrapper>
 					</Right>
 					<Left>
 						<div>
