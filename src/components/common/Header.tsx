@@ -1,13 +1,14 @@
-import Logo from './Logo';
-import { HeaderWrapper } from './Header.styled';
-import useModal from '@hooks/useModal';
-import { CloseIcon } from '@assets/svg/common';
-import Button from './Button';
 import React, { useState, FC, useCallback } from 'react';
-import { LoginModalWrapper } from '../Login.styled';
+import { useRouter } from 'next/router';
+
+import { CloseIcon } from '@assets/icons/common';
+import useModal from '@hooks/useModal';
 import APIs from '@lib/api/APIs';
 import { SignupModalWrapper } from '../Signup';
-import { useRouter } from 'next/router';
+import { LoginModalWrapper } from '../Login.styled';
+import Logo from './Logo';
+import Button from './Button';
+import { HeaderWrapper } from './Header.styled';
 
 const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 	const [teamPage, setTeamPage] = useState<boolean>(true);

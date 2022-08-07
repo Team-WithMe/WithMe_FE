@@ -1,13 +1,7 @@
-import React, { FC } from 'react'
-
+import React, { FC } from 'react';
 
 const TeamMemo: FC = () => {
+	return <div></div>;
+};
 
-  return(
-    <div>
-
-    </div>
-  )
-}
-
-export default TeamMemo
+export default TeamMemo;

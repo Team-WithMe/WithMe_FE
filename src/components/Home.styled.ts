@@ -29,13 +29,4 @@ export const HomeWrapper = styled.div`
 	.sub-title-span {
 		color: #6c5ce7;
 	}
-	.button-wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 155px;
-		height: 44px;
-		background-color: #6c5ce7;
-		border-radius: 5px;
-	}
 `;

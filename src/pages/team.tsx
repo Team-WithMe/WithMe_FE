@@ -1,12 +1,13 @@
+import React, { useState, FC } from 'react';
+
+import { CloseIcon } from '@assets/icons/common';
 import Header from '@components/common/Header';
 import Footer from '@components/common/Footer';
-import React, { useState, FC } from 'react';
-import { TeamWrapper } from './Team.styled';
-import useModal from '@hooks/useModal';
-import Card from '@components/Card';
-import { StackModalWrapper } from './Stack.styled';
-import { CloseIcon } from '@assets/svg/common';
 import Button from '@components/common/Button';
+import Card from '@components/Card';
+import useModal from '@hooks/useModal';
+import { TeamWrapper } from './Team.styled';
+import { StackModalWrapper } from './Stack.styled';
 
 // const stactArray = [
 // 	{
