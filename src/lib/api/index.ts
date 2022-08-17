@@ -1,8 +1,14 @@
 import axios from 'axios';
 
+export const instance = axios.create({
+	headers: {
+		Authorization: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('accessToken') : ''}`
+	}
+});
+
 export const get = async ({ url, params = {}, headers = {} }: { url: string; params?: object; headers?: object }) => {
 	try {
-		const result = await axios.get(url, {
+		const result = await instance.get(url, {
 			...params,
 			headers: {
 				...headers
@@ -29,7 +35,7 @@ export const post = async ({
 	headers?: object;
 }) => {
 	try {
-		const result = await axios.post(url, body, {
+		const result = await instance.post(url, body, {
 			...params,
 			headers: {
 				...headers
@@ -56,7 +62,7 @@ export const patch = async ({
 	headers?: object;
 }) => {
 	try {
-		const result = await axios.patch(url, body, {
+		const result = await instance.patch(url, body, {
 			...params,
 			headers: {
 				...headers
