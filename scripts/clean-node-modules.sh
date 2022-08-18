@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo 'node_modules를 삭제합니다..'
-rm -rf node_modules/
+find . -name "node_modules" -print -type d -depth -exec rm -rf {} \;
+echo -e "\033[32m" ----- clean node_modules end ----- "\033[m" 
