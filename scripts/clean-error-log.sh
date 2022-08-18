@@ -1,4 +1,4 @@
 #!/bin/sh
 
-find . -name "yarn-error.log" -print -type d -depth -exec rm -rf {} \;
-echo -e "\033[32m" ----- clean yarn-error.log end ----- "\033[m"
+echo 'yarn-error.log를 삭제합니다..'
+rm -rf yarn-error.log
