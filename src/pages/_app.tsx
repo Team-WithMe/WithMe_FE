@@ -8,8 +8,8 @@ import wrapper from '@store/index';
 import '@with-me/style/dist/global.css';
 
 // 삭제 예정
-import '@with-me/styles/build/global.css';
-import '@with-me/styles/build/design.css';
+// import '@with-me/styles/build/global.css';
+// import '@with-me/styles/build/design.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (

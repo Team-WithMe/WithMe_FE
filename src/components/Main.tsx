@@ -21,7 +21,9 @@ const ServiceModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 				<CloseIcon className="close-btn" onClick={onCloseModal} />
 			</div>
 			<div className="modal-title">위드미에서 같이 성장할 팀을 구해보세요!</div>
-			<div className="modal-sub-title">서비스를 이용하기 위해 스터디장 또는 스터디원을 선택해 주세요!</div>
+			<div className="modal-sub-title">
+				서비스를 이용하기 위해 스터디장 또는 스터디원을 선택해 주세요!
+			</div>
 			<div className="modal-content">
 				<div className="modal-group">
 					<img src="/img/select_img_1.png" />
@@ -52,8 +54,8 @@ const Main = () => {
 			<HomeWrapper>
 				<div className="home-title">
 					<div>쉽고 간편하게</div>
-					<span className="home-title-span">스터디</span>와 <span className="home-title-span">프로젝트 팀을</span> 구할
-					수 있는
+					<span className="home-title-span">스터디</span>와{' '}
+					<span className="home-title-span">프로젝트 팀을</span> 구할 수 있는
 					<br />
 					<span className="home-title-span">
 						온라인 스터디 매칭 플랫폼 <span className="sub-title-span">With Me</span>
