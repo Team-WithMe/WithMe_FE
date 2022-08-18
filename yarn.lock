@@ -1728,12 +1728,32 @@
   dependencies:
     classnames "^2.3.1"
 
+"@with-me/icons@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@with-me/icons/-/icons-0.3.0.tgz#e612607d7d15a5e61b1b31ac942702710c74b306"
+  integrity sha512-lR0xiB6LiWKAW+mNS6oknwdUgVG+ZxInnxz9+Ro3PaqZEfl78Cx3mxo3fq9znaxuHtNfXbdMi4rWxqTxLUGUiA==
+  dependencies:
+    react "^18.2.0"
+
+"@with-me/style@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@with-me/style/-/style-0.3.0.tgz#7193b519098e7a7b19a1cb96c9b7d8924538416a"
+  integrity sha512-17GTou4IbHvJXFE1b77DvfARpmKR5sUCO6j/uhQN68QC6Uwu8coHWY3DRQe6ncDTU7Um+Jo+/NG3ZVN8JdZbHA==
+
 "@with-me/styles@^0.7.2":
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/@with-me/styles/-/styles-0.7.2.tgz#964bdc76c3dd821da130d0ddc0347fc257fe1875"
   integrity sha512-3IFmM2nJu7wYEW75jtJCRFiuWm49t470whfOPXn8giWQJGW4AfBLjyBaheLAYUFptA0fMFw8gDupWK9ZntlGXA==
   dependencies:
     normalize-scss "^7.0.1"
+
+"@with-me/ui@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@with-me/ui/-/ui-0.3.0.tgz#cc823deea0372f2f21b6346477f8822c77df9ce0"
+  integrity sha512-wZkrCKgoqSrtrsgQhyEmaEZ/IZfEb2z5kQ1o7V/unxKJAqlHkNz0P0cLfDqn1XrTdUZ+GNBMcCYP43pvDTxInw==
+  dependencies:
+    classnames "^2.3.1"
+    react "^18.2.0"
 
 JSONStream@^1.0.4:
   version "1.3.5"
@@ -4325,6 +4345,13 @@ react@^18.1.0:
   version "18.1.0"
   resolved "https://registry.npmjs.org/react/-/react-18.1.0.tgz"
   integrity sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==
+  dependencies:
+    loose-envify "^1.1.0"
+
+react@^18.2.0:
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
+  integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
   dependencies:
     loose-envify "^1.1.0"
 

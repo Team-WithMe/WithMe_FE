@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Card } from '@with-me/design';
+import { Button } from '@with-me/ui';
 
 import Logo from '@components/common/Logo';
 import ProgressBar from '@components/host/ProgressBar';
@@ -41,10 +41,14 @@ const HostPage = () => {
 				<ProgressBar percent={hostPageData[hostPageNum].percent} />
 				<HostComponent />
 				<div className="host__button-group">
-					<Button onClick={onMovePage('prev')} bgColor="greyish" fullSize py={12}>
-						{hostPageNum === 0 ? '홈으로 돌아가기' : hostPageNum === 4 ? '팀페이지로 이동하기' : '전 단계로 돌아가기'}
+					<Button onClick={onMovePage('prev')} type="gray" fullSize>
+						{hostPageNum === 0
+							? '홈으로 돌아가기'
+							: hostPageNum === 4
+							? '팀페이지로 이동하기'
+							: '전 단계로 돌아가기'}
 					</Button>
-					<Button onClick={onMovePage('next')} bgColor="primary" fullSize py={12}>
+					<Button onClick={onMovePage('next')} type="primary" fullSize>
 						{hostPageNum === 4 ? '홈으로 돌아가기' : '모집중인 팀 등록하기'}
 					</Button>
 				</div>
