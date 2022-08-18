@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@with-me/ui';
 
+import Logo from '@components/common/Logo';
 import ProgressBar from '@components/host/ProgressBar';
 import { HOST_PAGE_DATA } from '@lib/constants/host';
 import { nextHostPageAction, prevHostPageAction } from '@store/host/host.slice';
@@ -19,6 +20,7 @@ const HostLayout: FC<{ children: ReactNode }> = ({ children }) => {
 
 	return (
 		<HostContainer>
+			<Logo />
 			<ProgressBar percent={HOST_PAGE_DATA[hostPageNum].percent} />
 			{children}
 			<HostBtnGroup>

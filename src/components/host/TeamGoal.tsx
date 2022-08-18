@@ -1,7 +1,8 @@
-import { Dispatch, FC, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction, useCallback } from 'react';
 import Image from 'next/image';
 import { Card, Text, Title } from '@with-me/ui';
 
+import * as URI from '@lib/constants/image.url';
 import { colors } from '@styles/theme';
 import type { HostGoalType } from '@typings/host';
 import {
@@ -16,9 +17,13 @@ interface TeamGoalProps {
 	setGoal: Dispatch<SetStateAction<HostGoalType>>;
 }
 
-// Todo card 컴포넌트 props 적용 확인 시 인라인 스타일 -> fullSize props로 변경
 const TeamGoal: FC<TeamGoalProps> = ({ goal, setGoal }) => {
 	const onChangeGoal = (goal: HostGoalType) => () => setGoal(goal);
+
+	const goalCardBorderColor = useCallback(
+		(currentGoal: HostGoalType) => (goal === currentGoal ? colors.primary : undefined),
+		[goal]
+	);
 
 	return (
 		<Card
@@ -38,10 +43,10 @@ const TeamGoal: FC<TeamGoalProps> = ({ goal, setGoal }) => {
 					fullSize
 					py={30}
 					isHover
-					borderColor={goal === 'project' ? colors.primary : undefined}
+					borderColor={goalCardBorderColor('project')}
 					onClick={onChangeGoal('project')}
 				>
-					<Image src="/images/team-goal-project.png" width={100} height={100} />
+					<Image src={URI.TEAM_GOAL_PROJECT_URI} width={100} height={100} />
 					<GoalTextWrapper>
 						<Text color="guide" weight="light">
 							같이 서비스를 만들 팀원을 구해보세요!
@@ -54,10 +59,10 @@ const TeamGoal: FC<TeamGoalProps> = ({ goal, setGoal }) => {
 					fullSize
 					py={30}
 					isHover
-					borderColor={goal === 'study' ? colors.primary : undefined}
+					borderColor={goalCardBorderColor('study')}
 					onClick={onChangeGoal('study')}
 				>
-					<Image src="/images/team-goal-study.png" width={100} height={100} />
+					<Image src={URI.TEAM_GOAL_STUDY_URI} width={100} height={100} />
 					<GoalTextWrapper>
 						<Text color="guide" weight="light">
 							함께 성장할 팀원을 모아보세요!
