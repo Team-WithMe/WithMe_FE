@@ -1,6 +1,13 @@
-import React from 'react';
+import { ChangeEvent, FC } from 'react';
 
-const TeamName = () => {
+interface TeamNameProps {
+	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	value: string;
+}
+
+const TeamName: FC<TeamNameProps> = ({ onChange, value }) => {
+	console.log(value);
+
 	return <div>TeamName</div>;
 };
 

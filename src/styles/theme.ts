@@ -12,7 +12,7 @@ const fontSizes = {
 	titleSize: calcRem(40)
 };
 
-const colors = {
+export const colors = {
 	primary: '#6C5CE7',
 	secondary: '#A29BFE',
 	danger: '#E74C3C',
@@ -24,7 +24,7 @@ const colors = {
 	gray_aa: '#aaa',
 	gray_ee: '#eee',
 	white: '#fff'
-};
+} as const;
 
 const deviceSizes = {
 	mobileS: '320px',

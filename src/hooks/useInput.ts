@@ -6,7 +6,10 @@ type RetrunTypes<T> = [T, (e: InputEventType) => void, Dispatch<SetStateAction<T
 
 const useInput = <T = string>(initalData: T): RetrunTypes<T> => {
 	const [value, setValue] = useState(initalData);
-	const onChangeValue = useCallback((e: InputEventType) => setValue(e.target.value as unknown as T), []);
+	const onChangeValue = useCallback(
+		(e: InputEventType) => setValue(e.target.value as unknown as T),
+		[]
+	);
 
 	return [value, onChangeValue, setValue];
 };
