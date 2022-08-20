@@ -11,7 +11,7 @@ export const HostTitleWrapper = styled.div`
 //* goal component styled
 export const GoalCardWrapper = styled.div`
 	display: flex;
-	gap: 30px;
+	gap: 20px;
 `;
 
 export const GoalCard = styled(Card)`
@@ -28,5 +28,5 @@ export const GoalTextWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 5px;
+	gap: 8px;
 `;

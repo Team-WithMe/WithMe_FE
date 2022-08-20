@@ -29,19 +29,20 @@ const TeamGoal: FC<TeamGoalProps> = ({ goal, setGoal }) => {
 		<Card
 			title={
 				<HostTitleWrapper>
-					<Title size="h4">📕 팀의 목적을 선택해주세요!</Title>
-					<Text color="guide">클릭해서 선택해주세요!</Text>
+					<Title size="h5">📕 팀의 목적을 선택해주세요!</Title>
+					<Text color="guide" size="sm" weight="light">
+						클릭해서 선택해주세요!
+					</Text>
 				</HostTitleWrapper>
 			}
 			fullSize
-			px={30}
+			px={20}
 			py={20}
 		>
 			<GoalCardWrapper>
 				{/* project */}
 				<GoalCard
 					fullSize
-					py={30}
 					isHover
 					borderColor={goalCardBorderColor('project')}
 					onClick={onChangeGoal('project')}
@@ -57,7 +58,6 @@ const TeamGoal: FC<TeamGoalProps> = ({ goal, setGoal }) => {
 				{/* study */}
 				<GoalCard
 					fullSize
-					py={30}
 					isHover
 					borderColor={goalCardBorderColor('study')}
 					onClick={onChangeGoal('study')}
