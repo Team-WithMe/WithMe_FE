@@ -1,7 +1,13 @@
+import { useSelector } from 'react-redux';
 import { Card, Text, Title } from '@with-me/ui';
+
+import { RootState } from '@store/rootReducer';
 import { HostTitleSuffix, HostTitleWrapper, SkillPageMoveText } from './host.components.styled';
 
 const TeamSkillSeletor = () => {
+	const { teamSkills } = useSelector((state: RootState) => state.host);
+	console.log({ teamSkills });
+
 	return (
 		<Card
 			title={

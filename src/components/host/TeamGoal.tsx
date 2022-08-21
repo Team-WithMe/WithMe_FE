@@ -1,8 +1,11 @@
-import { Dispatch, FC, SetStateAction, useCallback } from 'react';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import { Card, Text, Title } from '@with-me/ui';
 
 import * as URI from '@lib/constants/image.url';
+import type { RootState } from '@store/rootReducer';
+import { onChangeTeamGoal } from '@store/host/host.slice';
 import { colors } from '@styles/theme';
 import type { HostGoalType } from '@typings/host';
 import {
@@ -12,17 +15,18 @@ import {
 	HostTitleWrapper
 } from './host.components.styled';
 
-interface TeamGoalProps {
-	goal: HostGoalType;
-	setGoal: Dispatch<SetStateAction<HostGoalType>>;
-}
+const TeamGoal = () => {
+	const dispatch = useDispatch();
+	const { teamGoal } = useSelector((state: RootState) => state.host);
 
-const TeamGoal: FC<TeamGoalProps> = ({ goal, setGoal }) => {
-	const onChangeGoal = (goal: HostGoalType) => () => setGoal(goal);
+	const onChangeGoal = useCallback(
+		(seleteGoal: HostGoalType) => () => dispatch(onChangeTeamGoal(seleteGoal)),
+		[dispatch]
+	);
 
 	const goalCardBorderColor = useCallback(
-		(currentGoal: HostGoalType) => (goal === currentGoal ? colors.primary : undefined),
-		[goal]
+		(currentGoal: HostGoalType) => (teamGoal === currentGoal ? colors.primary : undefined),
+		[teamGoal]
 	);
 
 	return (

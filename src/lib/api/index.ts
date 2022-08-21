@@ -48,6 +48,9 @@ export const post = async ({
 		const result = await instance.post(url, body, {
 			...params,
 			headers: {
+				Authorization: `Bearer ${
+					typeof window !== 'undefined' ? localStorage.getItem('accessToken') : ''
+				}`,
 				...headers
 			}
 		});

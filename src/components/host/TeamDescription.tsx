@@ -1,14 +1,18 @@
-import { ChangeEvent, FC } from 'react';
-import { Card, Text, Title } from '@with-me/ui';
+import { ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Card, Text, Textarea, Title } from '@with-me/ui';
 
+import type { RootState } from '@store/rootReducer';
+import { onChangeTeamDescription } from '@store/host/host.slice';
 import { HostTitleWrapper } from './host.components.styled';
 
-interface TeamNameProps {
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-	value: string;
-}
+const TeamDescription = () => {
+	const dispatch = useDispatch();
+	const { teamDescription: value } = useSelector((state: RootState) => state.host);
 
-const TeamDescription: FC<TeamNameProps> = ({ onChange, value }) => {
+	const onChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
+		dispatch(onChangeTeamDescription(e.target.value));
+
 	return (
 		<Card
 			title={
@@ -23,7 +27,7 @@ const TeamDescription: FC<TeamNameProps> = ({ onChange, value }) => {
 			px={20}
 			py={20}
 		>
-			TeamDescription
+			<Textarea value={value} onChange={onChange} placeholder="팀의 설명을 입력해주세요!" />
 		</Card>
 	);
 };

@@ -1,15 +1,16 @@
-import { ChangeEvent, FC } from 'react';
-import { Card, Text, Title } from '@with-me/ui';
+import { ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Card, Input, Title } from '@with-me/ui';
 
+import type { RootState } from '@store/rootReducer';
+import { onChangeTeamName } from '@store/host/host.slice';
 import { HostTitleWrapper } from './host.components.styled';
 
-interface TeamNameProps {
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-	value: string;
-}
+const TeamName = () => {
+	const dispatch = useDispatch();
+	const { teamName: value } = useSelector((state: RootState) => state.host);
 
-const TeamName: FC<TeamNameProps> = ({ onChange, value }) => {
-	console.log(value);
+	const onChange = (e: ChangeEvent<HTMLInputElement>) => dispatch(onChangeTeamName(e.target.value));
 
 	return (
 		<Card
@@ -22,7 +23,7 @@ const TeamName: FC<TeamNameProps> = ({ onChange, value }) => {
 			px={20}
 			py={20}
 		>
-			TeamName
+			<Input placeholder="팀 이름을 입력해주세요!" value={value} onChange={onChange} />
 		</Card>
 	);
 };

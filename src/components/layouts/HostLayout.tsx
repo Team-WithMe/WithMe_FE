@@ -5,17 +5,33 @@ import { Button, Title } from '@with-me/ui';
 import Logo from '@components/common/Logo';
 import ProgressBar from '@components/host/ProgressBar';
 import { HOST_PAGE_DATA } from '@lib/constants/host';
-import { nextHostPageAction, prevHostPageAction } from '@store/host/host.slice';
 import type { RootState } from '@store/rootReducer';
+import { nextHostPageAction, prevHostPageAction } from '@store/host/host.slice';
+import { createTeamAction } from '@store/host/host.actions';
 import { HostBtnGroup, HostContainer, HostContentWrapper } from './HostLayout.styled';
 
 const HostLayout: FC<{ children: ReactNode }> = ({ children }) => {
 	const dispatch = useDispatch();
-	const { hostPageNum } = useSelector((state: RootState) => state.host);
+	const { hostPageNum, teamGoal, teamSkills, teamName, teamDescription } = useSelector(
+		(state: RootState) => state.host
+	);
 
 	const onMovePage = (mode: 'prev' | 'next') => () => {
 		if (mode === 'prev') hostPageNum > 0 && dispatch(prevHostPageAction());
-		else if (mode === 'next') hostPageNum < 4 && dispatch(nextHostPageAction());
+		else if (mode === 'next') {
+			//* create team api 요청
+			if (hostPageNum === 3) {
+				const body = {
+					goal: teamGoal,
+					skills: teamSkills,
+					name: teamName,
+					description: teamDescription
+				};
+
+				dispatch(createTeamAction(body));
+			}
+			hostPageNum < 4 && dispatch(nextHostPageAction());
+		}
 	};
 
 	return (
