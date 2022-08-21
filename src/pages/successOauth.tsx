@@ -7,8 +7,8 @@ const SuccessOauth = () => {
 		const accessToken = window.location.search.split('=')[1];
 		const token = atob(accessToken);
 		console.log(token);
-		// sessionStorage.setItem('accessToken', accessToken);
-		// router.push('/');
+		localStorage.setItem('accessToken', accessToken);
+		router.push('/');
 	}, []);
 
 	return <div></div>;
