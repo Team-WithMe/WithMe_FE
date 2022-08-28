@@ -1,11 +1,12 @@
+import type { SkillNameType } from './common';
 import type { HostGoalType, HostPageNumType } from './host';
 
 export interface IHostState {
 	hostPageNum: HostPageNumType;
 	teamGoal: HostGoalType;
-	teamSkills: string[]; //Todo 타입 정의 필요
+	teamSkills: SkillNameType[];
 	teamName: string;
-	teamDescription: string;
+	teamDesc: string;
 	createTeamLoading: boolean;
 	createTeamDone: boolean;
 	createTeamError: string | undefined;

@@ -1737,18 +1737,18 @@
   dependencies:
     classnames "^2.3.1"
 
-"@with-me/icons@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@with-me/icons/-/icons-0.4.0.tgz#8c0a0eb1b4c25b6b6f09a821c293c1bdb9120df2"
-  integrity sha512-EgTJhUpw3PdylajCk5RHUqFF8L33sk0Y2oQU3jKwNVQ1n+gB4TPd6Kv3ba38Quv0hSCx8VG2QW/Afb/YmO82+w==
+"@with-me/icons@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@with-me/icons/-/icons-0.6.0.tgz#565783c5dc29b7eef8d39e7d21997267167eccc7"
+  integrity sha512-x1y+5ha8P7RT42gi6lhNY7C3/gPGWGvXG+3z/oXaTSQV3fLmmXile5Z+kXWxUxIzdj6m++G9kAh1HYLWxfvcJg==
   dependencies:
     react "^18.2.0"
     react-dom "^18.2.0"
 
-"@with-me/style@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@with-me/style/-/style-0.4.0.tgz#89dbbd7ada39f562c6a474b6998e4192d925cc75"
-  integrity sha512-69Qfky8Ek2wnEwp9NEpGd/hGJS1NnZWzrkMYeRNSsTkKMiJBOKtz7URruAW1zeddODzkO/vKR4kPSz+pRH6OXg==
+"@with-me/style@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@with-me/style/-/style-0.6.2.tgz#d9379929fe2a3602b1a6bb5cff8a212040dabc7e"
+  integrity sha512-zto5pAceGX8IE+G7vmSXxTFHXp1iTQTZVngjz7QH8b/4LLUOPWQlcZMK34a5db6XhxWyVLmHoZSCQJlyMyxkyg==
 
 "@with-me/styles@^0.7.2":
   version "0.7.2"
@@ -1757,10 +1757,10 @@
   dependencies:
     normalize-scss "^7.0.1"
 
-"@with-me/ui@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@with-me/ui/-/ui-0.4.1.tgz#ccc9818624b6bfa30d17b0567bf69c05b1ac2a41"
-  integrity sha512-JxMRfowtxBuDHFH39xOTY4u/S1n8eO3hP146TKtMK3RnlDhRqL79wENCwbXR5Iz6lzKWh9qY+idp4qOHu0DGog==
+"@with-me/ui@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@with-me/ui/-/ui-0.6.2.tgz#3c1abf00bd6e840999941e67c7df52d3d9047602"
+  integrity sha512-fMXMSArpkOvr+G/joZnV/0KXbtDabM1qCDCqKQK0Y9ibTDS4XGQS21vKBwrRcOqD4VdDKsweiOFdpzzvfSw5jg==
   dependencies:
     classnames "^2.3.1"
     react "^18.2.0"

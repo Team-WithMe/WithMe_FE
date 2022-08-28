@@ -1,17 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { HostGoalType } from '@typings/host';
-import { IHostState } from '@typings/reduxState';
-import { createTeamAction } from './host.actions';
 
-// const [goal, setGoal] = useState<HostGoalType>('project');
-// const [skills, setSkills] = useState(['react', 'typescript']);
+import type { IHostState } from '@typings/reduxState';
+import type { SkillNameType } from '@typings/common';
+import type { HostGoalType } from '@typings/host';
+import { createTeamAction } from './host.actions';
 
 const initialState: IHostState = {
 	hostPageNum: 0,
 	teamGoal: 'project',
-	teamSkills: ['react', 'typescript', 'javascript'],
+	teamSkills: [],
 	teamName: '',
-	teamDescription: '',
+	teamDesc: '',
 	createTeamLoading: false,
 	createTeamDone: false,
 	createTeamError: undefined
@@ -27,17 +26,17 @@ const hostSlice = createSlice({
 		nextHostPageAction: (state: IHostState) => {
 			state.hostPageNum += 1;
 		},
-		onChangeTeamGoal: (state: IHostState, action: PayloadAction<HostGoalType>) => {
+		changeTeamGoalAction: (state: IHostState, action: PayloadAction<HostGoalType>) => {
 			state.teamGoal = action.payload;
 		},
-		onChangeTeamSkills: (state: IHostState, action: PayloadAction<string>) => {
-			console.log(state);
+		changeTeamSkillAction: (state: IHostState, action: PayloadAction<SkillNameType[]>) => {
+			state.teamSkills = action.payload;
 		},
-		onChangeTeamName: (state: IHostState, action: PayloadAction<string>) => {
+		changeTeamNameAction: (state: IHostState, action: PayloadAction<string>) => {
 			state.teamName = action.payload;
 		},
-		onChangeTeamDescription: (state: IHostState, action: PayloadAction<string>) => {
-			state.teamDescription = action.payload;
+		changeTeamDescAction: (state: IHostState, action: PayloadAction<string>) => {
+			state.teamDesc = action.payload;
 		}
 	},
 	extraReducers: ({ addCase }) => {
@@ -60,9 +59,9 @@ const hostSlice = createSlice({
 export const {
 	prevHostPageAction,
 	nextHostPageAction,
-	onChangeTeamGoal,
-	onChangeTeamSkills,
-	onChangeTeamName,
-	onChangeTeamDescription
+	changeTeamGoalAction,
+	changeTeamSkillAction,
+	changeTeamNameAction,
+	changeTeamDescAction
 } = hostSlice.actions;
 export default hostSlice.reducer;

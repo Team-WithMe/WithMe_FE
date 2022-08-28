@@ -1,30 +1,66 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, CSSProperties, FC, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Input, Title } from '@with-me/ui';
+import { Button, Card, Input, Title } from '@with-me/ui';
 
-import type { RootState } from '@store/rootReducer';
-import { onChangeTeamName } from '@store/host/host.slice';
-import { HostTitleWrapper } from './host.components.styled';
+import useInput from '@hooks/useInput';
+import { RootState } from '@store/rootReducer';
+import { changeTeamNameAction } from '@store/host/host.slice';
+import type { HostComponentProps } from '@typings/host';
+import { HostBtnGroup, HostTitleWrapper, InputClearButton } from './host.styled';
 
-const TeamName = () => {
+const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 	const dispatch = useDispatch();
-	const { teamName: value } = useSelector((state: RootState) => state.host);
+	const { teamName } = useSelector((state: RootState) => state.host);
 
-	const onChange = (e: ChangeEvent<HTMLInputElement>) => dispatch(onChangeTeamName(e.target.value));
+	const [value, onChange, setValue] = useInput(teamName);
+	const [teamNameValid, setTeamNameValid] = useState(false);
+
+	const onClearValue = () => setValue('');
+
+	const onChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
+		setTeamNameValid(false);
+		onChange(event);
+	};
+
+	const onMoveToNextHostPage = () => {
+		if (!value) return setTeamNameValid(true);
+		dispatch(changeTeamNameAction(value));
+		onMoveToHostPage('next')();
+	};
+
+	const inputStyled: CSSProperties = useMemo(() => ({ marginBottom: '10px' }), []);
 
 	return (
-		<Card
-			title={
-				<HostTitleWrapper>
-					<Title size="h5">📘 팀의 이름을 정해주세요!</Title>
-				</HostTitleWrapper>
-			}
-			fullSize
-			px={20}
-			py={20}
-		>
-			<Input placeholder="팀 이름을 입력해주세요!" value={value} onChange={onChange} />
-		</Card>
+		<>
+			<Card
+				title={
+					<HostTitleWrapper>
+						<Title size="h5">📘 팀의 이름을 정해주세요!</Title>
+					</HostTitleWrapper>
+				}
+				fullSize
+				px={20}
+				py={20}
+			>
+				<Input
+					placeholder="팀 이름을 입력해주세요!"
+					value={value}
+					onChange={onChangeValue}
+					error={teamNameValid}
+					errorMsg="팀 이름은 필수입니다!"
+					style={inputStyled}
+					suffix={<InputClearButton onClick={onClearValue} />}
+				/>
+			</Card>
+			<HostBtnGroup>
+				<Button onClick={onMoveToHostPage('prev')} fullSize type="gray">
+					전 단계로 돌아가기
+				</Button>
+				<Button onClick={onMoveToNextHostPage} fullSize>
+					다음 단계로 넘어가기
+				</Button>
+			</HostBtnGroup>
+		</>
 	);
 };
 
