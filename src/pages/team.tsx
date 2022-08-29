@@ -1,100 +1,30 @@
 import React, { useState, FC } from 'react';
 
-import { CloseIcon } from '@assets/icons/common';
 import Header from '@components/common/Header';
 import Footer from '@components/common/Footer';
-import Button from '@components/common/Button';
 import Card from '@components/Card';
+import { TeamWrapper } from '@components/team.styled';
 import useModal from '@hooks/useModal';
-import { TeamWrapper } from './Team.styled';
-import { StackModalWrapper } from './Stack.styled';
-
-// const stactArray = [
-// 	{
-// 		stack: 'react'
-// 	},
-// 	{
-// 		stack: 'nextjs'
-// 	},
-// 	{
-// 		stack: 'kubernetes'
-// 	},
-// 	{
-// 		stack: 'spring'
-// 	},
-// 	{
-// 		stack: 'HTML'
-// 	},
-
-// 	{
-// 		stack: 'django'
-// 	},
-// 	{
-// 		stack: 'javascript'
-// 	},
-// 	{
-// 		stack: 'typescript'
-// 	},
-// 	{
-// 		stack: 'nodejs'
-// 	},
-// 	{
-// 		stack: 'vue'
-// 	},
-// 	{
-// 		stack: 'java'
-// 	},
-// 	{
-// 		stack: 'sql'
-// 	},
-// 	{
-// 		stack: 'css'
-// 	}
-// ];
+import { Button } from '@with-me/ui';
+import { StackModalWrapper } from '@components/stack.styled';
+import { Close } from '@with-me/icons';
 
 const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 	const [checkedStack, setCheckedStack] = useState<string[]>([]);
-	const [stackArray, setStackArray] = useState([
-		{
-			stack: 'react'
-		},
-		{
-			stack: 'nextjs'
-		},
-		{
-			stack: 'kubernetes'
-		},
-		{
-			stack: 'spring'
-		},
-		{
-			stack: 'HTML'
-		},
-
-		{
-			stack: 'django'
-		},
-		{
-			stack: 'javascript'
-		},
-		{
-			stack: 'typescript'
-		},
-		{
-			stack: 'nodejs'
-		},
-		{
-			stack: 'vue'
-		},
-		{
-			stack: 'java'
-		},
-		{
-			stack: 'sql'
-		},
-		{
-			stack: 'css'
-		}
+	const [stackArray] = useState([
+		{ stack: 'react' },
+		{ stack: 'nextjs' },
+		{ stack: 'kubernetes' },
+		{ stack: 'spring' },
+		{ stack: 'HTML' },
+		{ stack: 'django' },
+		{ stack: 'javascript' },
+		{ stack: 'typescript' },
+		{ stack: 'nodejs' },
+		{ stack: 'vue' },
+		{ stack: 'java' },
+		{ stack: 'sql' },
+		{ stack: 'css' }
 	]);
 	const checkedHandler = (item: string) => {
 		if (checkedStack.length >= 10) {
@@ -174,7 +104,7 @@ const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 	console.log(checkedStack);
 	return (
 		<StackModalWrapper>
-			<CloseIcon className="close-btn" onClick={onCloseModal} />
+			<Close className="close-btn" onClick={onCloseModal} />
 			<div className="input-wrapper">
 				<input
 					placeholder="원하는 기술스택을 검색해주세요!"
@@ -233,8 +163,8 @@ const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 			</div>
 			<div className="team-modal-desc">기술 스택은 최대 10개까지 선택이 가능합니다!</div>
 			<div className="btn-wrapper">
-				<Button bgColor="bgColor">취소</Button>
-				<Button color="white">적용</Button>
+				<Button>취소</Button>
+				<Button>적용</Button>
 			</div>
 		</StackModalWrapper>
 	);

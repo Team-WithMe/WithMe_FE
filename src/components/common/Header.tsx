@@ -1,17 +1,16 @@
 import React, { useState, FC, useCallback } from 'react';
 import { useRouter } from 'next/router';
 
-import { CloseIcon } from '@assets/icons/common';
 import useModal from '@hooks/useModal';
 import APIs from '@lib/api/APIs';
 import { SignupModalWrapper } from '../Signup';
 import { LoginModalWrapper } from '../Login.styled';
 import Logo from './Logo';
-import Button from './Button';
 import { HeaderWrapper } from './Header.styled';
+import { Button } from '@with-me/ui';
+import { Close } from '@with-me/icons';
 
 const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
-	const [teamPage, setTeamPage] = useState<boolean>(true);
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [loginCheckEmail, setLoginCheckEmail] = useState<boolean>(true);
@@ -26,58 +25,41 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 	const [signupPassword, setSignupPassword] = useState<string>('');
 	const [signupConfirmPassword, setSignupConfirmPassword] = useState<string>('');
 
-	const emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //이메일형식
+	const emailReg =
+		/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //이메일형식
 	const passwordReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/; // 8자 이상, 특수문자, 소문자, 숫자
 	//eslint-disable-next-line
 	const nicknameReg = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; // 닉네임 특수문자 입력 불가
 
-	const emailCheckHandler = useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
-			e.preventDefault();
-			setEmail(e.target.value);
-		},
-		[email]
-	);
+	const emailCheckHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+		setEmail(e.target.value);
+	}, []);
 
-	const passwordCheckHandler = useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
-			e.preventDefault();
-			setPassword(e.target.value);
-		},
-		[password]
-	);
+	const passwordCheckHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+		setPassword(e.target.value);
+	}, []);
 
-	const signupEmailHandler = useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
-			e.preventDefault();
-			setSignupEmail(e.target.value);
-		},
-		[signupEmail]
-	);
+	const signupEmailHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+		setSignupEmail(e.target.value);
+	}, []);
 
-	const signupNicknameHandler = useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
-			e.preventDefault();
-			setSignupNickname(e.target.value);
-		},
-		[signupNickName]
-	);
+	const signupNicknameHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+		setSignupNickname(e.target.value);
+	}, []);
 
-	const signupPasswordHandler = useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
-			e.preventDefault();
-			setSignupPassword(e.target.value);
-		},
-		[signupPassword]
-	);
+	const signupPasswordHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+		setSignupPassword(e.target.value);
+	}, []);
 
-	const signupConfirmPasswordHandler = useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
-			e.preventDefault();
-			setSignupConfirmPassword(e.target.value);
-		},
-		[signupConfirmPassword]
-	);
+	const signupConfirmPasswordHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+		setSignupConfirmPassword(e.target.value);
+	}, []);
 
 	const changeSignupModalHandler = () => {
 		setChangeModal(true);
@@ -113,10 +95,6 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 			alert('이메일 형식으로 작성해주세요');
 			return;
 		}
-		// if (!password || password.length <= 8 || password.length >= 30) {
-		// 	setLoginCheckPassword(false);
-		// 	return;
-		// }
 
 		if (!passwordReg.test(password)) {
 			setLoginCheckPassword(false);
@@ -200,17 +178,25 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 				<LoginModalWrapper>
 					<div className="login-modal-logo">
 						<Logo />
-						<CloseIcon className="close-btn" onClick={onCloseModal} />
+						<Close className="close-btn" onClick={onCloseModal} />
 					</div>
 					<div className="login-modal-title">로그인</div>
 					<div className="input-wrapper">
 						{loginCheckEmail === true ? (
 							<div>
-								<input placeholder="이메일" onChange={emailCheckHandler} className="login-email-input" />
+								<input
+									placeholder="이메일"
+									onChange={emailCheckHandler}
+									className="login-email-input"
+								/>
 							</div>
 						) : (
 							<div>
-								<input placeholder="이메일" onChange={emailCheckHandler} className="login-email-input-error" />
+								<input
+									placeholder="이메일"
+									onChange={emailCheckHandler}
+									className="login-email-input-error"
+								/>
 							</div>
 						)}
 						{loginCheckPassword === true ? (
@@ -233,7 +219,7 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 							</div>
 						)}
 					</div>
-					<Button color="white" className="login-btn" onClick={loginSubmitHandler}>
+					<Button className="login-btn" onClick={loginSubmitHandler}>
 						로그인
 					</Button>
 					<div className="login-sub-title">
@@ -247,11 +233,11 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 						<span>또는</span>
 						<hr />
 					</div>
-					<Button color="white" className="login-github-btn" onClick={socialLogin}>
+					<Button className="login-github-btn" onClick={socialLogin}>
 						<img src="/img/github.png" className="github-image" />
 						Github 로그인
 					</Button>
-					<Button color="white" className="login-google-btn">
+					<Button className="login-google-btn">
 						<img src="/img/github.png" className="google-image" />
 						<a href="http://ec2-3-38-53-163.ap-northeast-2.compute.amazonaws.com:8089/oauth2/authorization/google">
 							Google 로그인
@@ -262,26 +248,42 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 				<SignupModalWrapper>
 					<div className="login-modal-logo">
 						<Logo />
-						<CloseIcon className="close-btn" onClick={onCloseModal} />
+						<Close className="close-btn" onClick={onCloseModal} />
 					</div>
 					<div className="login-modal-title">회원가입</div>
 					<div className="input-wrapper">
 						{signupCheckEmail === true ? (
 							<div>
-								<input placeholder="이메일" className="login-email-input" onChange={signupEmailHandler} />
+								<input
+									placeholder="이메일"
+									className="login-email-input"
+									onChange={signupEmailHandler}
+								/>
 							</div>
 						) : (
 							<div>
-								<input placeholder="이메일" className="login-email-input-error" onChange={signupEmailHandler} />
+								<input
+									placeholder="이메일"
+									className="login-email-input-error"
+									onChange={signupEmailHandler}
+								/>
 							</div>
 						)}
 						{signupCheckNickName === true ? (
 							<div>
-								<input placeholder="닉네임" className="login-email-input" onChange={signupNicknameHandler} />
+								<input
+									placeholder="닉네임"
+									className="login-email-input"
+									onChange={signupNicknameHandler}
+								/>
 							</div>
 						) : (
 							<div>
-								<input placeholder="닉네임" className="login-email-input-error" onChange={signupNicknameHandler} />
+								<input
+									placeholder="닉네임"
+									className="login-email-input-error"
+									onChange={signupNicknameHandler}
+								/>
 							</div>
 						)}
 						{signupCheckPassword === true ? (
@@ -323,7 +325,7 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 							</div>
 						)}
 					</div>
-					<Button color="white" className="login-btn" onClick={signupSubmitHandler}>
+					<Button className="login-btn" onClick={signupSubmitHandler}>
 						회원가입
 					</Button>
 					<div className="login-sub-title">
@@ -337,7 +339,7 @@ const LoginModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 						<span>또는</span>
 						<hr />
 					</div>
-					<Button color="white" className="login-github-btn">
+					<Button className="login-github-btn">
 						<img src="/img/github.png" className="github-image" />
 						Github 로그인
 					</Button>
