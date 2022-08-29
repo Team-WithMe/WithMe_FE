@@ -1,9 +1,9 @@
 import Header from '@components/common/Header';
-import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import Footer from '@components/common/Footer';
-import { ProfileNoImg } from '@assets/svg/common';
+
 import MenuButton from '@components/PersonalPage/MenuBotton';
+import { NextPage } from 'next';
 
 const ContentWrapper = styled.div`
 	display: flex;
@@ -35,7 +35,7 @@ const Left = styled.div`
 	border: 1px solid #d2d2d2;
 `;
 
-const PersonnalPage: FC = () => {
+const PersonnalPage: NextPage = () => {
 	return (
 		<>
 			<Header />
@@ -44,9 +44,7 @@ const PersonnalPage: FC = () => {
 				<RightAndLeft>
 					<Right>
 						<Profile>
-							<div>
-								<ProfileNoImg />
-							</div>
+							<div>defaultImage</div>
 							<div>
 								<div>닉네임</div>
 								<div>

@@ -9,7 +9,7 @@ const SuccessOauth = () => {
 		console.log(token);
 		localStorage.setItem('accessToken', accessToken);
 		router.push('/');
-	}, []);
+	}, [router]);
 
 	return <div></div>;
 };
