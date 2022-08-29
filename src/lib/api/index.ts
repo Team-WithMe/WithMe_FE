@@ -2,11 +2,21 @@ import axios from 'axios';
 
 export const instance = axios.create({
 	headers: {
-		Authorization: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('accessToken') : ''}`
+		Authorization: `Bearer ${
+			typeof window !== 'undefined' ? localStorage.getItem('accessToken') : ''
+		}`
 	}
 });
 
-export const get = async ({ url, params = {}, headers = {} }: { url: string; params?: object; headers?: object }) => {
+export const get = async ({
+	url,
+	params = {},
+	headers = {}
+}: {
+	url: string;
+	params?: object;
+	headers?: object;
+}) => {
 	try {
 		const result = await instance.get(url, {
 			...params,
@@ -38,6 +48,9 @@ export const post = async ({
 		const result = await instance.post(url, body, {
 			...params,
 			headers: {
+				Authorization: `Bearer ${
+					typeof window !== 'undefined' ? localStorage.getItem('accessToken') : ''
+				}`,
 				...headers
 			}
 		});

@@ -1,8 +1,8 @@
 import { Global, css } from '@emotion/react';
 
 const DefaultStyle = css`
-	html {
-		font-size: 100%;
+	:root {
+		--wm-body-font-family: 'Noto Sans KR', sans-serif;
 	}
 
 	body {
@@ -10,9 +10,8 @@ const DefaultStyle = css`
 		overflow-x: hidden;
 	}
 
-	//* design system 오버라이딩
-	body {
-		--wm-body-font-family: 'Noto Sans KR', sans-serif;
+	a {
+		text-decoration: none;
 	}
 
 	@media (min-width: 300px) {

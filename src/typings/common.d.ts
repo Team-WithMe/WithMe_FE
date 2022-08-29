@@ -1,22 +1,36 @@
-declare module '*.svg' {
-	import React = require('react');
-
-	export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
-	const src: string;
-	export default src;
+export interface ModalProps {
+	onCloseModal: () => void;
 }
 
-declare module '*.jpg' {
-	const content: string;
-	export default content;
-}
-
-declare module '*.png' {
-	const content: string;
-	export default content;
-}
-
-declare module '*.json' {
-	const content: string;
-	export default content;
-}
+export type SkillNameType =
+	| 'android'
+	| 'angular'
+	| 'aws'
+	| 'c'
+	| 'cpp'
+	| 'cs'
+	| 'css'
+	| 'deno'
+	| 'django'
+	| 'docker'
+	| 'flutter'
+	| 'go'
+	| 'html'
+	| 'java'
+	| 'javascript'
+	| 'kotlin'
+	| 'kubernetes'
+	| 'linux'
+	| 'nodejs'
+	| 'python'
+	| 'r'
+	| 'react'
+	| 'ruby'
+	| 'sass'
+	| 'spring'
+	| 'sql'
+	| 'svelte'
+	| 'swift'
+	| 'typescript'
+	| 'ubuntu'
+	| 'vue';

@@ -16,8 +16,8 @@
 
 ## 🗄 Links
 
-- <a href="https://www.npmjs.com/package/@with-me/design">WithMe 디자인 시스템 npm</a>
-- <a href="https://with-me-ui.netlify.app/">WithMe 스토리북 디자인 시스템 가이드</a>
+- <a href="https://www.npmjs.com/package/@with-me/ui">WithMe 디자인 시스템 npm</a>
+- <a href="https://with-me-ui.netlify.app/?path=/docs/assets-icons--base">WithMe 스토리북 디자인 시스템 가이드</a>
 - <a href="https://github.com/Team-WithMe/WithMe_BE">WithMe 백엔드 레포지토리</a>
 
 <br />
@@ -72,7 +72,15 @@ import useModal from '@hooks/useModal';
 
 //* 모달창 안에 들어갈 컨텐츠
 const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => (
-	<div style={{ background: 'white', width: '568px', height: '400px', borderRadius: '10px', padding: '20px' }}>
+	<div
+		style={{
+			background: 'white',
+			width: '568px',
+			height: '400px',
+			borderRadius: '10px',
+			padding: '20px'
+		}}
+	>
 		모달 내용... <br /> <button onClick={onCloseModal}>모달창 닫기</button>
 	</div>
 );
