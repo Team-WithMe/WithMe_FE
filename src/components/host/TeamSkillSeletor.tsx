@@ -26,7 +26,6 @@ const TeamSkillSeletor: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 
 	const [startNum, setStartNum] = useState<number>(SKILL_OFFSET);
 	const [endNum, setEndNum] = useState<number>(SKILL_LIMIT);
-
 	const [skills, setSkills] = useState<typeof SKILLS>([]);
 	const [selectSkillList, setSelectSkillList] = useState<SkillNameType[]>(teamSkills);
 	const [prevBtnValid, setprevBtnValid] = useState(false);

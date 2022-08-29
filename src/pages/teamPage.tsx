@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import TeamLayout from '@components/layout/TeamLayout';
 import styled from '@emotion/styled';
-import theme from '@styles/theme';
+import TeamLayout from '@components/layouts/TeamLayout';
 
 const TopContent = styled.div`
 	display: flex;

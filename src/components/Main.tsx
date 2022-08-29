@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from '@with-me/design';
+import { Button } from '@with-me/ui';
 
 import { CloseIcon } from '@assets/icons/common';
 import { HomeWrapper } from '@components/Home.styled';
@@ -29,17 +29,13 @@ const ServiceModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {
 					<img src="/img/select_img_1.png" />
 					<div>스터디장이신가요?</div>
 					<span>팀페이지를 만들 수 있어요!</span>
-					<Button bgColor="primary" onClick={onMoveToPage('host')}>
-						스터디장으로 진행하기
-					</Button>
+					<Button onClick={onMoveToPage('host')}>스터디장으로 진행하기</Button>
 				</div>
 				<div className="modal-party-member">
 					<img src="/img/select_img_2.png" />
 					<div>스터디원이신가요?</div>
 					<span>모집중인 팀 페이지에서 팀을 찾아보세요!</span>
-					<Button bgColor="primary" onClick={onMoveToPage('team')}>
-						스터디원으로 참여하기
-					</Button>
+					<Button onClick={onMoveToPage('team')}>스터디원으로 참여하기</Button>
 				</div>
 			</div>
 		</ModalContainer>
@@ -63,7 +59,7 @@ const Main = () => {
 					<div className="home-sub-title">
 						<span className="sub-title-span">위드미</span>로 함께 할 팀원을 찾아보세요!
 					</div>
-					<Button bgColor="primary" onClick={onOpenModal} px={10} py={20}>
+					<Button onClick={onOpenModal}>
 						서비스 시작하기 <ArrowFillIcon width="20" height="20" fill="#fff" />
 					</Button>
 				</div>
