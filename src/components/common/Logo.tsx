@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Text } from '@with-me/ui';
 import { Code } from '@with-me/icons';
-
 import { colors } from '@styles/theme';
 
 interface Props {
