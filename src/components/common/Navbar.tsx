@@ -2,13 +2,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import styled from '@emotion/styled';
 import { Text } from '@with-me/ui';
-
-export interface NavItemType {
-	active: boolean;
-	key: string;
-	label: string;
-	toPage: string;
-}
+import type { NavItemType } from '@typings/common';
 
 interface NavbarProps {
 	items: NavItemType[];

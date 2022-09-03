@@ -1,20 +1,48 @@
-import { Button, Card, Input, Text } from '@with-me/ui';
+import { ChangeEvent, useRef, useState } from 'react';
 import Image from 'next/image';
+import { Button, Card, Input, Text } from '@with-me/ui';
 
-import { DEFAULT_USER_IMG_URI } from '@lib/constants/image.url';
-import { ProfileBtnGroup, ProfileWrapper } from './mypage.styled';
-import { colors } from '@styles/theme';
 import useInput from '@hooks/useInput';
-import { InputClearButton } from '@styles/common.styled';
-import { useRef } from 'react';
+import { DEFAULT_USER_IMG_URI } from '@lib/constants/image.url';
+import { ValueClearButton } from '@styles/common.styled';
+import { colors } from '@styles/theme';
+import { ProfileBtnGroup, ProfileWrapper } from './mypage.styled';
 
 const ProfileCard = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
-	const [nickname, onChangeNickname, setNickname] = useInput('');
+	const fileInputRef = useRef<HTMLInputElement>(null);
+
+	const [nickname, onChange, setNickname] = useInput('');
+	const [nicknameValid, setNicknameValid] = useState(false);
+
+	const onChangeNickname = (e: ChangeEvent<HTMLInputElement>) => {
+		if (nicknameValid) setNicknameValid(false);
+		onChange(e);
+	};
 
 	const onClearNicknameValue = () => {
+		if (nicknameValid) setNicknameValid(false);
 		setNickname('');
 		inputRef.current?.focus();
+	};
+
+	const onSelectImage = () => {
+		fileInputRef.current?.click();
+	};
+
+	const onDeleteImage = () => {
+		console.log('onDeleteImage');
+	};
+
+	const onSaveNickname = () => {
+		if (nickname.length === 0) setNicknameValid(true);
+		else {
+			console.log(nickname);
+		}
+	};
+
+	const onToWithDraw = () => {
+		console.log('onToWithDraw');
 	};
 
 	return (
@@ -26,16 +54,19 @@ const ProfileCard = () => {
 						<Text size="xl" color="primary" weight="medium">
 							Profile Image
 						</Text>
-						<Text color="description" weight="light">
-							<Text color="primary" weight="medium">
+						<Text color="description" weight="light" size="sm">
+							<Text color="primary" weight="medium" size="sm">
 								위드미
 							</Text>
-							사람들에게 사진으로 자신을 알려주세요!
+							&nbsp;사람들에게 사진으로 자신을 알려주세요!
 						</Text>
 					</div>
 					<ProfileBtnGroup>
-						<Button>이미지 선택</Button>
-						<Button type="gray">이미지 삭제</Button>
+						<input ref={fileInputRef} type="file" hidden />
+						<Button onClick={onSelectImage}>이미지 선택</Button>
+						<Button onClick={onDeleteImage} type="gray">
+							이미지 삭제
+						</Button>
 					</ProfileBtnGroup>
 				</div>
 				<div className="profile__wrapper">
@@ -46,11 +77,14 @@ const ProfileCard = () => {
 						placeholder="변경할 닉네임을 입력해주세요"
 						value={nickname}
 						onChange={onChangeNickname}
-						suffix={<InputClearButton onClick={onClearNicknameValue} />}
+						suffix={<ValueClearButton onClick={onClearNicknameValue} />}
+						error={nicknameValid}
 					/>
 					<ProfileBtnGroup>
-						<Button fullSize>변경 완료</Button>
-						<Button fullSize type="error">
+						<Button fullSize onClick={onSaveNickname}>
+							변경 완료
+						</Button>
+						<Button fullSize onClick={onToWithDraw} type="error">
 							회원 탈퇴
 						</Button>
 					</ProfileBtnGroup>
