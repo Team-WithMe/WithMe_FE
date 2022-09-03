@@ -1730,23 +1730,23 @@
     "@typescript-eslint/types" "5.6.0"
     eslint-visitor-keys "^3.0.0"
 
-"@with-me/icons@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@with-me/icons/-/icons-0.6.4.tgz#578921743f435d81f7c3c5cda140fc35c7c6848a"
-  integrity sha512-VNXohohfOW9MEcxTnZ9TvYQP42CBTTKADQV7loM31O6Lo9X3OqShHxVTq/C8Mu2b9RD1YnTyw8vyOC12BVvR3Q==
+"@with-me/icons@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@with-me/icons/-/icons-0.7.0.tgz#34725e13181b7ea2411de0e90809d326c990146b"
+  integrity sha512-wP9NeDhP0CXtcK2UaDFm6W6fgWR2NfbEZQLyCChjzaBpEyJGLBuaoruOre42lrQUfnKANBoLwgK0zEZZQ3wddQ==
   dependencies:
     react "^18.2.0"
     react-dom "^18.2.0"
 
-"@with-me/style@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@with-me/style/-/style-0.6.2.tgz#d9379929fe2a3602b1a6bb5cff8a212040dabc7e"
-  integrity sha512-zto5pAceGX8IE+G7vmSXxTFHXp1iTQTZVngjz7QH8b/4LLUOPWQlcZMK34a5db6XhxWyVLmHoZSCQJlyMyxkyg==
+"@with-me/style@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@with-me/style/-/style-0.7.0.tgz#dff55f598f24aa3847a19ca67c5e3880d7aa083c"
+  integrity sha512-5Lh/b3At8BbrfWz+WppN1h9NQaLFAepmlDpQhDUjyatn8zBlIFL0Mii3jeGSxE02ko79sZXVMyvFhcGdfZsuVw==
 
-"@with-me/ui@^0.6.5":
-  version "0.6.5"
-  resolved "https://registry.yarnpkg.com/@with-me/ui/-/ui-0.6.5.tgz#c6032ba694d6a3cc85228797531374905d81f2d0"
-  integrity sha512-erbPuV3MsXxeCEzM5pbB2owkjboXy+kNZ1UkbZnM/fMPZQcSoYOpb6+LY5vhRXFlkI2d0ljT2MwvbuWBv+8Qfg==
+"@with-me/ui@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@with-me/ui/-/ui-0.7.0.tgz#7b6c851c04f9d86958cd6abcc21cfb0e2b2552ff"
+  integrity sha512-v3FrvCjEuWloz+VEndpkdAShH7DugIra22AV5SHn4wmD4ZXDpBhFStzQj71p1tRivBYihQTYVR+GT5wviCBGag==
   dependencies:
     classnames "^2.3.1"
     react "^18.2.0"

@@ -1,7 +1,12 @@
+import { FC, ReactNode, useMemo } from 'react';
+import { useRouter } from 'next/router';
+import { Card, Title } from '@with-me/ui';
+
 import AppLayout from '@components/common/AppLayout';
 import Navbar, { NavItemType } from '@components/common/Navbar';
-import { useRouter } from 'next/router';
-import { FC, ReactNode } from 'react';
+import { MY_DETAIL_PAGE_NAME } from '@lib/constants/mypage';
+import { MyPageContainer, MyPageWrapper } from './mypage.styled';
+import ProfileCard from './ProfileCard';
 
 interface MyPageLayoutProps {
 	children: ReactNode;
@@ -10,31 +15,36 @@ interface MyPageLayoutProps {
 const MyPageLayout: FC<MyPageLayoutProps> = ({ children }) => {
 	const { pathname } = useRouter();
 
-	const ITEMS: NavItemType[] = [
-		{
-			active: pathname.split('/')[3] === 'myTeamList',
-			key: '1',
-			label: '내 팀',
-			toPage: '/mypage/123/myTeamList'
-		},
-		{
-			active: pathname.split('/')[3] === 'myArticle',
-			key: '2',
-			label: '내 작성글',
-			toPage: '/mypage/123/myArticle'
-		},
-		{
-			active: pathname.split('/')[3] === 'myLikeTeamList',
-			key: '3',
-			label: '좋아요한 팀',
-			toPage: '/mypage/123/myLikeTeamList'
-		}
-	];
+	const MY_PAGE_PRIFIX = '/mypage/123/' as const;
+	const current_page_name = pathname.split('/')[3];
+
+	const nav_items: NavItemType[] = useMemo(
+		() =>
+			MY_DETAIL_PAGE_NAME.map(({ key, label, pageName }) => ({
+				active: current_page_name === pageName,
+				key,
+				label,
+				toPage: `${MY_PAGE_PRIFIX}${pageName}`
+			})),
+		[current_page_name]
+	);
 
 	return (
 		<AppLayout>
-			<Navbar items={ITEMS} />
-			<div>{children}</div>
+			<MyPageContainer>
+				<Title weight="regular" size="h3">
+					마이 페이지
+				</Title>
+				<MyPageWrapper>
+					<div className="layout__info">
+						<ProfileCard />
+						<Navbar items={nav_items} />
+					</div>
+					<div className="layout__content">
+						<Card>{children}</Card>
+					</div>
+				</MyPageWrapper>
+			</MyPageContainer>
 		</AppLayout>
 	);
 };

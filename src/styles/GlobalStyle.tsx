@@ -5,6 +5,11 @@ const DefaultStyle = css`
 		--wm-body-font-family: 'Noto Sans KR', sans-serif;
 	}
 
+	html,
+	body {
+		height: 100%;
+	}
+
 	body {
 		background-color: #f8f9fd;
 		overflow-x: hidden;
