@@ -7,6 +7,10 @@ import TeamMemberList from '@components/teamPageComponent/TeamMemberList';
 import Navbar from '@components/common/Navbar';
 import { NavItemType } from '@components/common/Navbar';
 import { useRouter } from 'next/router';
+import useModal from '@hooks/useModal';
+import { Button } from '@with-me/ui';
+import NoticeWriteModal from '@components/modals/NoticeWriteModal';
+import NoticeModal from '@components/modals/NoticeModal';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -25,7 +29,7 @@ const SmallTitle = styled.div`
 	font-size: large;
 	margin-bottom: 20px;
 `;
-const RighttContent = styled.div`
+const RightContent = styled.div`
 	width: 20%;
 	flex-direction: row;
 `;
@@ -62,6 +66,17 @@ const TeamPage: FC = () => {
 			toPage: '/mypage/123/myLikeTeamList'
 		}
 	];
+	const {
+		ModalPortal: NoticeWriteModalPortal,
+		onCloseModal: closeNoticeWriteModal,
+		onOpenModal: openNoticeWriteModal
+	} = useModal();
+
+	const {
+		ModalPortal: NoticeModalPortal,
+		onCloseModal: closeNoticeModal,
+		onOpenModal: openNoticeModal
+	} = useModal();
 
 	return (
 		<AppLayout>
@@ -69,13 +84,13 @@ const TeamPage: FC = () => {
 				<BigTitle>이츠 스터디 매칭 서비스 프로젝트</BigTitle>
 				<SmallTitle>이츠는 더 쉽게 스터디 팀을 구할 수 있는 방법을 제공합니다.</SmallTitle>
 				<ContentWrapper>
-					<RighttContent>
+					<RightContent>
 						<Navbar items={ITEMS} />
-					</RighttContent>
+					</RightContent>
 					<LeftContent>
 						<LeftTop>
-							<ContentBox title={'공지사항'} button={true}>
-								<NoticeList />
+							<ContentBox title={'공지사항'} button={true} buttonAction={openNoticeWriteModal}>
+								<NoticeList NoticeClickEvent={openNoticeModal} />
 							</ContentBox>
 							<ContentBox title={'팀원목록'}>
 								<TeamMemberList />
@@ -89,6 +104,12 @@ const TeamPage: FC = () => {
 					</LeftContent>
 				</ContentWrapper>
 			</Wrapper>
+			<NoticeWriteModalPortal>
+				<NoticeWriteModal onCloseModal={closeNoticeWriteModal} />
+			</NoticeWriteModalPortal>
+			<NoticeModalPortal>
+				<NoticeModal onCloseModal={closeNoticeModal} />
+			</NoticeModalPortal>
 		</AppLayout>
 	);
 };

@@ -6,13 +6,13 @@ import { Text } from '@with-me/ui';
 import { Code } from '@with-me/icons';
 import { colors } from '@styles/theme';
 
-interface Props {
+interface LogoProps {
 	noLink?: boolean;
 }
 
-const Container = styled.div<{ noLink?: boolean }>`
+const Container = styled.div<LogoProps>`
 	cursor: pointer;
-	transition: 0.3s;
+	transition: 250ms;
 
 	${({ noLink }) =>
 		noLink &&
@@ -31,9 +31,8 @@ const Container = styled.div<{ noLink?: boolean }>`
 	}
 `;
 
-//* noLink 로 props 를 보내면 logo를 클릭해도 '/' 으로 가지 않습니다.
-//* ex: <Logo noLink />
-const Logo: FC<Props> = ({ noLink }) => (
+/** @description noLink를 props를 넘겨주면 logo를 클릭해도 '/' 으로 가지 않습니다. */
+const Logo: FC<LogoProps> = ({ noLink }) => (
 	<Container noLink={noLink}>
 		<Link href="/">
 			<a>

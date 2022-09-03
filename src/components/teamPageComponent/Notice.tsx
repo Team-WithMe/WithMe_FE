@@ -10,11 +10,12 @@ const NoticeWrapper = styled.div`
 interface NoticeProps {
 	title: string;
 	date: string;
+	NoticeClickEvent: () => void;
 }
 
-const Notice: FC<NoticeProps> = ({ title, date }) => {
+const Notice: FC<NoticeProps> = ({ title, date, NoticeClickEvent }) => {
 	return (
-		<NoticeWrapper>
+		<NoticeWrapper onClick={NoticeClickEvent}>
 			<div>{title}</div>
 			<div>{date}</div>
 		</NoticeWrapper>

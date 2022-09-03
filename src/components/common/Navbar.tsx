@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import styled from '@emotion/styled';
-import { colors } from '@styles/theme';
 import Link from 'next/link';
+import styled from '@emotion/styled';
 import { Text } from '@with-me/ui';
 
 export interface NavItemType {
@@ -50,7 +49,7 @@ const Navbar: FC<NavbarProps> = ({ items }) => {
 				<Link key={key} href={toPage}>
 					<Item active={active}>
 						<Text
-							size="xxl"
+							size="xl"
 							color={active ? 'defalut' : 'guide'}
 							weight={active ? 'medium' : 'light'}
 						>

@@ -25,14 +25,15 @@ interface ContentBoxProps {
 	title: string;
 	children: ReactNode;
 	button?: boolean;
+	buttonAction?: () => void;
 }
 
-const ContentBox: FC<ContentBoxProps> = ({ title, children, button }) => {
+const ContentBox: FC<ContentBoxProps> = ({ title, children, button, buttonAction }) => {
 	return (
 		<BoxWrapper>
 			<Title>
 				<div>{title}</div>
-				{button && <Button>글쓰기</Button>}
+				{button && <Button onClick={buttonAction}>글쓰기</Button>}
 			</Title>
 			<Content>{children}</Content>
 		</BoxWrapper>
