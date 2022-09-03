@@ -17,6 +17,11 @@ const Notice = styled.div`
 const NoticeList = styled.div`
 	display: flex;
 	flex-direction: column;
+	.notice {
+		color: '#dcdcdc';
+		justify-content: space-between;
+		padding: 10px;
+	}
 `;
 const TeamMember = styled.div`
 	width: 460px;
@@ -59,7 +64,7 @@ const TeamPage: FC = () => {
 					<Notice>
 						<ContentTitle>공지사항</ContentTitle>
 						<NoticeList>
-							<div>글 목록</div>
+							<div className="notice">글 목록</div>
 							<div>글 목록</div>
 							<div>글 목록</div>
 							<div>글 목록</div>
