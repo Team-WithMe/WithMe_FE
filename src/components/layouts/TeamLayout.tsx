@@ -9,6 +9,7 @@ const AllWrapper = styled.div`
 const ContentWrapper = styled.div`
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	padding: 10px;
 `;
 
@@ -20,7 +21,7 @@ const TeamLayout: FC<TeamLayoutProps> = ({ children }) => {
 	return (
 		<AllWrapper>
 			<Header />
-			<ContentWrapper></ContentWrapper>
+			<ContentWrapper>{children}</ContentWrapper>
 			<Footer />
 		</AllWrapper>
 	);
