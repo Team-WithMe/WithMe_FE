@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import AppLayout from '@components/common/AppLayout';
-import ContentBox from '@components/teamPageComponent/ContentBox';
-import NoticeList from '@components/teamPageComponent/NoticeList';
-import TeamMemberList from '@components/teamPageComponent/TeamMemberList';
+import ContentBox from '@components/teamPageComponent/teampage/ContentBox';
+import NoticeList from '@components/teamPageComponent/teampage/NoticeList';
+import TeamMemberList from '@components/teamPageComponent/teampage/TeamMemberList';
 import Navbar from '@components/common/Navbar';
 import { NavItemType } from '@components/common/Navbar';
 import { useRouter } from 'next/router';
