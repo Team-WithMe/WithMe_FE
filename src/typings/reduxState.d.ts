@@ -12,7 +12,16 @@ export interface IHostState {
 	createTeamError: string | undefined;
 }
 
+export interface INoticeState {
+	noticeRegistrationLoding: boolean;
+	noticeRegistrationDone: boolean;
+	noticeRegistrationError: undefined;
+	noticeTitle: string;
+	noticeContent: string;
+}
+
 //* state 타입 생길 때 마다 추가 해주세요!
 export interface IRootState {
 	host: IHostState;
+	notice: INoticeState;
 }
