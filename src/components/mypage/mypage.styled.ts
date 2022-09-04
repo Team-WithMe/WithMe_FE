@@ -1,14 +1,15 @@
 import styled from '@emotion/styled';
+import { Button, Card } from '@with-me/ui';
 
 //* layout styled
-export const MyPageContainer = styled.div`
+export const MyPageLayoutContainer = styled.div`
 	padding: 80px 0 200px;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 `;
 
-export const MyPageWrapper = styled.div`
+export const MyPageLayoutWrapper = styled.div`
 	display: flex;
 	gap: 16px;
 	width: 100%;
@@ -58,4 +59,40 @@ export const ProfileBtnGroup = styled.div`
 	gap: 10px;
 	justify-content: center;
 	align-items: center;
+`;
+
+//* pages styled
+export const MyPageWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+`;
+
+export const MyPageTitleWrapper = styled.div`
+	display: flex;
+	gap: 10px;
+	align-items: flex-end;
+`;
+
+export const MyPageContentGruop = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+`;
+
+export const MyPageContentItem = styled(Card)`
+	position: relative;
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+`;
+
+export const MyTeamSkillList = styled.div`
+	padding-top: 10px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
 `;

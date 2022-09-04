@@ -2,6 +2,13 @@ export interface ModalProps {
 	onCloseModal: () => void;
 }
 
+export interface NavItemType {
+	active: boolean;
+	key: string;
+	label: string;
+	toPage: string;
+}
+
 export type SkillNameType =
 	| 'android'
 	| 'angular'

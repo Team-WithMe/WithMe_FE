@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { XCircle } from '@with-me/icons';
 
-export const InputClearButton = styled(XCircle)`
+export const ValueClearButton = styled(XCircle)`
 	fill: #777;
 	cursor: pointer;
 	transform: 250ms;
