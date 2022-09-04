@@ -1,4 +1,5 @@
-import { CSSProperties, useMemo } from 'react';
+import { CSSProperties, FC, useMemo } from 'react';
+import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import { Button, Text, Title } from '@with-me/ui';
 
@@ -11,7 +12,9 @@ import {
 	MyTeamSkillList
 } from '@components/mypage/mypage.styled';
 import { SKILLS } from '@lib/constants/skills';
+import { fetchMyTeamDataAPI } from '@lib/api/mypage.apis';
 import type { SkillNameType } from '@typings/common';
+import type { MyPageResType } from '@typings/mypage';
 
 const DUMMY_DATA = [
 	{
@@ -40,7 +43,9 @@ const DUMMY_DATA = [
 	}
 ];
 
-const MyTeam = () => {
+const MyTeamList: FC<MyPageResType> = ({ nickname, teamList, userImage }) => {
+	console.log(nickname, teamList, userImage);
+
 	const buttonStyled: CSSProperties = useMemo(
 		() => ({ position: 'absolute', top: '20px', right: '20px' }),
 		[]
@@ -85,4 +90,11 @@ const MyTeam = () => {
 	);
 };
 
-export default MyTeam;
+export default MyTeamList;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+	const userId = '1';
+	const { data } = await fetchMyTeamDataAPI(userId);
+
+	return { props: { ...data } };
+};
