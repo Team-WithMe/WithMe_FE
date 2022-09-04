@@ -18,6 +18,7 @@ import type { RootState } from '@store/rootReducer';
 import { createTeamAction } from '@store/host/host.actions';
 import { nextHostPageAction, prevHostPageAction } from '@store/host/host.slice';
 import type { CreateTeamAPIBodyType } from '@typings/host';
+import { Dispatch } from '@reduxjs/toolkit';
 
 const HostPage: NextPage = () => {
 	const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const HostPage: NextPage = () => {
 			description: teamDesc
 		};
 
-		dispatch(createTeamAction(data));
+		(dispatch as Dispatch<any>)(createTeamAction(data));
 	}, [dispatch, teamDesc, teamGoal, teamName, teamSkills]);
 
 	//* team 생성 스탭 별 컴포넌트 목록
