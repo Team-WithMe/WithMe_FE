@@ -1,21 +1,26 @@
-import { ChangeEvent, CSSProperties, FC, useMemo, useState } from 'react';
+import { ChangeEvent, CSSProperties, FC, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Card, Input, Title } from '@with-me/ui';
 
 import useInput from '@hooks/useInput';
 import { RootState } from '@store/rootReducer';
 import { changeTeamNameAction } from '@store/host/host.slice';
+import { ValueClearButton } from '@styles/common.styled';
 import type { HostComponentProps } from '@typings/host';
-import { HostBtnGroup, HostTitleWrapper, InputClearButton } from './host.styled';
+import { HostBtnGroup, HostTitleWrapper } from './host.styled';
 
 const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 	const dispatch = useDispatch();
 	const { teamName } = useSelector((state: RootState) => state.host);
 
+	const inputRef = useRef<HTMLInputElement>(null);
 	const [value, onChange, setValue] = useInput(teamName);
 	const [teamNameValid, setTeamNameValid] = useState(false);
 
-	const onClearValue = () => setValue('');
+	const onClearValue = () => {
+		inputRef.current?.focus();
+		setValue('');
+	};
 
 	const onChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
 		setTeamNameValid(false);
@@ -23,9 +28,13 @@ const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 	};
 
 	const onMoveToNextHostPage = () => {
-		if (!value) return setTeamNameValid(true);
-		dispatch(changeTeamNameAction(value));
-		onMoveToHostPage('next')();
+		if (!value) {
+			inputRef.current?.focus();
+			setTeamNameValid(true);
+		} else {
+			dispatch(changeTeamNameAction(value));
+			onMoveToHostPage('next')();
+		}
 	};
 
 	const inputStyled: CSSProperties = useMemo(() => ({ marginBottom: '10px' }), []);
@@ -43,13 +52,14 @@ const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 				py={20}
 			>
 				<Input
+					ref={inputRef}
 					placeholder="팀 이름을 입력해주세요!"
 					value={value}
 					onChange={onChangeValue}
 					error={teamNameValid}
 					errorMsg="팀 이름은 필수입니다!"
 					style={inputStyled}
-					suffix={<InputClearButton onClick={onClearValue} />}
+					suffix={<ValueClearButton onClick={onClearValue} />}
 				/>
 			</Card>
 			<HostBtnGroup>

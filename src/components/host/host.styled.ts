@@ -46,16 +46,6 @@ export const HostBtnGroup = styled.div`
 	margin-bottom: 100px;
 `;
 
-export const InputClearButton = styled(XCircle)`
-	cursor: pointer;
-	fill: #777;
-	transition: 250ms;
-
-	&:hover {
-		fill: ${({ theme }) => theme.colors.primary};
-	}
-`;
-
 //* goal component styled
 export const GoalCardWrapper = styled.div`
 	display: flex;

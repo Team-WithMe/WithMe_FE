@@ -17,30 +17,49 @@ const Container = styled.div`
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.75);
 		z-index: 10;
+		background-color: rgba(0, 0, 0, 0.75);
+		animation-name: modal-bg-animation;
+		animation-duration: 150ms;
+
+		@keyframes modal-bg-animation {
+			0% {
+				background-color: rgba(0, 0, 0, 0.25);
+			}
+
+			100% {
+				background-color: rgba(0, 0, 0, 0.75);
+			}
+		}
 	}
 
 	.content {
 		position: absolute;
 		z-index: 11;
+		animation-name: modal-animation;
+		animation-duration: 150ms;
 
 		@media ${({ theme }) => theme.device.tabletL} {
 			margin-top: 80px;
+		}
+
+		@keyframes modal-animation {
+			0% {
+				transform: scale(0.95);
+			}
+
+			100% {
+				transform: scale(1);
+			}
 		}
 	}
 `;
 
 const useModal = () => {
 	const [modalOpened, setModalOpened] = useState(false);
-
 	const onModalEvent = useCallback((open: boolean) => () => setModalOpened(open), []);
 
-	interface Props {
-		children: ReactNode;
-	}
-
-	const ModalPortal: FC<Props> = ({ children }) => {
+	const ModalPortal: FC<{ children: ReactNode }> = ({ children }) => {
 		const ref = useRef<Element | null>(null);
 		const [mounted, setMounted] = useState(false);
 
