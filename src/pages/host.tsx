@@ -43,7 +43,7 @@ const HostPage: NextPage = () => {
 			description: teamDesc
 		};
 
-		dispatch(createTeamAction(data));
+		dispatch(createTeamAction(data) as any);
 	}, [dispatch, teamDesc, teamGoal, teamName, teamSkills]);
 
 	//* team 생성 스탭 별 컴포넌트 목록
