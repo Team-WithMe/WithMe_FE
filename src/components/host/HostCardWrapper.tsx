@@ -17,6 +17,7 @@ const HostCardWrapper: FC<HostCardWrapperProps> = ({ children, description, titl
 				<Text color="guide" size="sm" weight="light">
 					{description}
 				</Text>
+				<S.TitleSuffix>{suffix}</S.TitleSuffix>
 			</S.TitleWrapper>
 		}
 		fullSize
