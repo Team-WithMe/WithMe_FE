@@ -2,9 +2,9 @@ import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import type { NextPage } from 'next';
 import { Title } from '@with-me/ui';
+import styled from '@emotion/styled';
 
 import Logo from '@components/common/Logo';
-import { HostContainer, HostContentWrapper } from '@components/host/host.styled';
 import ProgressBar from '@components/host/ProgressBar';
 import TeamDesc from '@components/host/TeamDesc';
 import TeamGoal from '@components/host/TeamGoal';
@@ -18,6 +18,24 @@ import type { RootState } from '@store/rootReducer';
 import { createTeamAction } from '@store/host/host.actions';
 import { nextHostPageAction, prevHostPageAction } from '@store/host/host.slice';
 import type { CreateTeamAPIBodyType } from '@typings/host';
+
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	width: 90%;
+	max-width: 812px;
+	margin: 50px auto 0;
+`;
+
+const Wrapper = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+`;
 
 const HostPage: NextPage = () => {
 	const dispatch = useDispatch();
@@ -66,14 +84,14 @@ const HostPage: NextPage = () => {
 
 	return (
 		<>
-			<HostContainer>
+			<Container>
 				<Logo />
 				<Title>{HOST_PAGE_DATA[hostPageNum].title}</Title>
-				<HostContentWrapper>
+				<Wrapper>
 					<ProgressBar percent={HOST_PAGE_DATA[hostPageNum].percent} />
 					<HostComponent />
-				</HostContentWrapper>
-			</HostContainer>
+				</Wrapper>
+			</Container>
 			<ModalPortal>
 				<CreateTeamModal onCreateTeam={onCreateTeam} onCloseModal={onCloseModal} />
 			</ModalPortal>

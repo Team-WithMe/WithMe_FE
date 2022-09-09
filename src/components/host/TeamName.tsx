@@ -1,13 +1,14 @@
 import { ChangeEvent, CSSProperties, FC, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Card, Input, Title } from '@with-me/ui';
+import { Button, Input } from '@with-me/ui';
 
 import useInput from '@hooks/useInput';
 import { RootState } from '@store/rootReducer';
 import { changeTeamNameAction } from '@store/host/host.slice';
 import { ValueClearButton } from '@styles/common.styled';
 import type { HostComponentProps } from '@typings/host';
-import { HostBtnGroup, HostTitleWrapper } from './host.styled';
+import HostCardWrapper from './HostCardWrapper';
+import S from './TeamName.styled';
 
 const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 	const dispatch = useDispatch();
@@ -41,16 +42,7 @@ const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 
 	return (
 		<>
-			<Card
-				title={
-					<HostTitleWrapper>
-						<Title size="h5">📘 팀의 이름을 정해주세요!</Title>
-					</HostTitleWrapper>
-				}
-				fullSize
-				px={20}
-				py={20}
-			>
+			<HostCardWrapper title="📘 팀의 이름을 정해주세요!">
 				<Input
 					ref={inputRef}
 					placeholder="팀 이름을 입력해주세요!"
@@ -61,15 +53,15 @@ const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 					style={inputStyled}
 					suffix={<ValueClearButton onClick={onClearValue} />}
 				/>
-			</Card>
-			<HostBtnGroup>
+			</HostCardWrapper>
+			<S.ButtonWrapper>
 				<Button onClick={onMoveToHostPage('prev')} fullSize type="gray">
 					전 단계로 돌아가기
 				</Button>
 				<Button onClick={onMoveToNextHostPage} fullSize>
 					다음 단계로 넘어가기
 				</Button>
-			</HostBtnGroup>
+			</S.ButtonWrapper>
 		</>
 	);
 };

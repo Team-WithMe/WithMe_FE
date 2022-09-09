@@ -4,20 +4,22 @@ import S from './HostCardWrapper.styled';
 
 interface HostCardWrapperProps {
 	children: ReactNode;
-	description: string;
 	title: string;
+	description?: string;
 	suffix?: ReactNode;
 }
 
-const HostCardWrapper: FC<HostCardWrapperProps> = ({ children, description, title, suffix }) => (
+const HostCardWrapper: FC<HostCardWrapperProps> = ({ children, title, description, suffix }) => (
 	<Card
 		title={
 			<S.TitleWrapper>
 				<Title size="h5">{title}</Title>
-				<Text color="guide" size="sm" weight="light">
-					{description}
-				</Text>
-				<S.TitleSuffix>{suffix}</S.TitleSuffix>
+				{description && (
+					<Text color="guide" size="sm" weight="light">
+						{description}
+					</Text>
+				)}
+				{suffix && <S.TitleSuffix>{suffix}</S.TitleSuffix>}
 			</S.TitleWrapper>
 		}
 		fullSize
