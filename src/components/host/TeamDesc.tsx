@@ -1,12 +1,13 @@
 import { CSSProperties, FC, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Card, Text, Textarea, Title } from '@with-me/ui';
+import { Button, Text, Textarea } from '@with-me/ui';
 
 import useInput from '@hooks/useInput';
 import type { RootState } from '@store/rootReducer';
 import { changeTeamDescAction } from '@store/host/host.slice';
 import type { HostComponentProps } from '@typings/host';
-import { HostBtnGroup, HostTitleWrapper } from './host.styled';
+import HostCardWrapper from './HostCardWrapper';
+import S from './TeamDesc.styled';
 
 interface TeamDescProps extends HostComponentProps {
 	onOpenModal: () => void;
@@ -39,18 +40,9 @@ const TeamDesc: FC<TeamDescProps> = ({ onMoveToHostPage, onOpenModal }) => {
 
 	return (
 		<>
-			<Card
-				title={
-					<HostTitleWrapper>
-						<Title size="h5">📙 팀의 설명을 입력해주세요!</Title>
-						<Text color="guide" size="sm" weight="light">
-							{`공백없이 최대 ${MAX_NUMBER}자 이내로 입력해주세요!`}
-						</Text>
-					</HostTitleWrapper>
-				}
-				fullSize
-				px={20}
-				py={20}
+			<HostCardWrapper
+				title="📙 팀의 설명을 입력해주세요!"
+				description={`공백없이 최대 ${MAX_NUMBER}자 이내로 입력해주세요!`}
 			>
 				<Textarea
 					rows={5}
@@ -66,8 +58,8 @@ const TeamDesc: FC<TeamDescProps> = ({ onMoveToHostPage, onOpenModal }) => {
 						>{`${value.length}/${MAX_NUMBER}`}</Text>
 					}
 				/>
-			</Card>
-			<HostBtnGroup>
+			</HostCardWrapper>
+			<S.ButtonWrapper>
 				<Button onClick={onMoveToHostPage('prev')} fullSize type="gray">
 					전 단계로 돌아가기
 				</Button>
@@ -79,7 +71,7 @@ const TeamDesc: FC<TeamDescProps> = ({ onMoveToHostPage, onOpenModal }) => {
 				>
 					다음 단계로 넘어가기
 				</Button>
-			</HostBtnGroup>
+			</S.ButtonWrapper>
 		</>
 	);
 };

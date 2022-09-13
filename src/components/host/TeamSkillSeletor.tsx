@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Card, Text, Title } from '@with-me/ui';
+import { Button, Text } from '@with-me/ui';
 
 import { SKILLS } from '@lib/constants/skills';
 import { RootState } from '@store/rootReducer';
@@ -8,14 +8,8 @@ import { changeTeamSkillAction } from '@store/host/host.slice';
 import { colors } from '@styles/theme';
 import type { SkillNameType } from '@typings/common';
 import type { HostComponentProps } from '@typings/host';
-import {
-	HostBtnGroup,
-	HostTitleSuffix,
-	HostTitleWrapper,
-	SkillCard,
-	SkillList,
-	SkillWrapper
-} from './host.styled';
+import HostCardWrapper from './HostCardWrapper';
+import S from './TeamSkillSeletor.styled';
 
 const SKILL_OFFSET = 0 as const;
 const SKILL_LIMIT = 12 as const;
@@ -76,36 +70,29 @@ const TeamSkillSeletor: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 
 	return (
 		<>
-			<Card
-				title={
-					<HostTitleWrapper>
-						<Title size="h5">📗 언어 / 라이브러리 를 선택해주세요!</Title>
-						<Text color="guide" size="sm" weight="light">
-							최대 8개까지 선택할 수 있어요!
-						</Text>
-						<HostTitleSuffix>
-							<Button
-								size="sm"
-								type="error"
-								onClick={onClearSkill}
-								disabled={selectSkillList.length === 0}
-							>
-								초기화
-							</Button>
-							<Button size="sm" onClick={onMoveToPrevSkillPage} disabled={prevBtnValid}>
-								이전
-							</Button>
-							<Button size="sm" onClick={onMoveToNextSkillPage} disabled={nextBtnValid}>
-								다음
-							</Button>
-						</HostTitleSuffix>
-					</HostTitleWrapper>
+			<HostCardWrapper
+				title="📗 언어 / 라이브러리 를 선택해주세요!"
+				description="최대 8개까지 선택할 수 있어요!"
+				suffix={
+					<>
+						<Button
+							size="sm"
+							type="error"
+							onClick={onClearSkill}
+							disabled={selectSkillList.length === 0}
+						>
+							초기화
+						</Button>
+						<Button size="sm" onClick={onMoveToPrevSkillPage} disabled={prevBtnValid}>
+							이전
+						</Button>
+						<Button size="sm" onClick={onMoveToNextSkillPage} disabled={nextBtnValid}>
+							다음
+						</Button>
+					</>
 				}
-				fullSize
-				px={20}
-				py={20}
 			>
-				<SkillList>
+				<S.SkillList>
 					{selectSkillList.length ? (
 						selectSkillList.map(skill => (
 							<Text key={skill} color={isMaxSkillList ? 'success' : 'defalut'}>
@@ -115,10 +102,10 @@ const TeamSkillSeletor: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 					) : (
 						<Text color="guide">기술스택을 선택해주세요!</Text>
 					)}
-				</SkillList>
-				<SkillWrapper>
+				</S.SkillList>
+				<S.Grid>
 					{skills.map(({ Icon, id, name }) => (
-						<SkillCard
+						<S.Item
 							key={id}
 							isHover
 							onClick={onSelectedSkill(name)}
@@ -126,18 +113,18 @@ const TeamSkillSeletor: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 						>
 							<Icon />
 							{name}
-						</SkillCard>
+						</S.Item>
 					))}
-				</SkillWrapper>
-			</Card>
-			<HostBtnGroup>
+				</S.Grid>
+			</HostCardWrapper>
+			<S.ButtonWrapper>
 				<Button onClick={onMoveToHostPage('prev')} fullSize type="gray">
 					전 단계로 돌아가기
 				</Button>
 				<Button onClick={onMoveToNextHostPage} fullSize disabled={!selectSkillList.length}>
 					다음 단계로 넘어가기
 				</Button>
-			</HostBtnGroup>
+			</S.ButtonWrapper>
 		</>
 	);
 };
