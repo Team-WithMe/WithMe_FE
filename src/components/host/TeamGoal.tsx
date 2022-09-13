@@ -11,7 +11,11 @@ import type { HostComponentProps, HostGoalType } from '@typings/host';
 import HostCardWrapper from './HostCardWrapper';
 import S from './TeamGoal.styled';
 
-const TeamGoal: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
+interface TeamGoalProps extends HostComponentProps {
+	onMoveToHome: () => Promise<boolean>;
+}
+
+const TeamGoal: FC<TeamGoalProps> = ({ onMoveToHome, onMoveToHostPage }) => {
 	const dispatch = useDispatch();
 	const { teamGoal } = useSelector((state: RootState) => state.host);
 
@@ -24,6 +28,11 @@ const TeamGoal: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 		(currentGoal: HostGoalType) => (teamGoal === currentGoal ? colors.primary : undefined),
 		[teamGoal]
 	);
+
+	const onClickPrevBtn = () => {
+		// TODO confirm 임시, 추후에 check modal 생성하여 리팩토링 예정
+		if (confirm('홈으로 돌아가시겠습니까?')) onMoveToHome();
+	};
 
 	return (
 		<>
@@ -60,7 +69,7 @@ const TeamGoal: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 				</S.Wrapper>
 			</HostCardWrapper>
 			<S.ButtonWrapper>
-				<Button onClick={onMoveToHostPage('prev')} fullSize type="gray">
+				<Button onClick={onClickPrevBtn} fullSize type="gray">
 					홈으로 돌아가기
 				</Button>
 				<Button onClick={onMoveToHostPage('next')} fullSize>

@@ -6,12 +6,7 @@ import { Button, Card, Text, Title } from '@with-me/ui';
 import { SKILLS } from '@lib/constants/skills';
 import { RootState } from '@store/rootReducer';
 import type { ModalProps } from '@typings/common';
-import {
-	CreateTeamButtonGroup,
-	CreateTeamCardWrapper,
-	CreateTeamSkillList,
-	CreateTeamTitleWrapper
-} from './CreateTeamModal.styled';
+import S from './CreateTeamModal.styled';
 
 interface CreateTeamModalProps extends ModalProps {
 	onCreateTeam: () => void;
@@ -32,15 +27,15 @@ const CreateTeamModal: FC<CreateTeamModalProps> = ({ onCloseModal, onCreateTeam:
 	return (
 		<Card
 			title={
-				<CreateTeamTitleWrapper>
+				<S.TitleWrapper>
 					<Title size="h4" weight="regular">
 						{teamName}팀 생성하기
 					</Title>
 					<Close width={30} height={30} onClick={onCloseModal} />
-				</CreateTeamTitleWrapper>
+				</S.TitleWrapper>
 			}
 		>
-			<CreateTeamCardWrapper>
+			<S.CardWrapper>
 				<Text size="xl" style={textStyled}>
 					팀 목적
 					<br />
@@ -50,11 +45,11 @@ const CreateTeamModal: FC<CreateTeamModalProps> = ({ onCloseModal, onCreateTeam:
 					<Text size="xl" style={textStyled}>
 						기술 스택
 					</Text>
-					<CreateTeamSkillList>
+					<S.SkillList>
 						{teamSkills.map(skill =>
 							SKILLS.map(({ Icon, name }) => name === skill && <Icon width={30} height={30} />)
 						)}
-					</CreateTeamSkillList>
+					</S.SkillList>
 				</div>
 				<Text size="xl" style={textStyled}>
 					팀 설명
@@ -62,15 +57,15 @@ const CreateTeamModal: FC<CreateTeamModalProps> = ({ onCloseModal, onCreateTeam:
 					{teamDesc}
 				</Text>
 				<Text color="description">해당 정보가 맞는지 한번 더 확인해주세요!</Text>
-			</CreateTeamCardWrapper>
-			<CreateTeamButtonGroup>
+			</S.CardWrapper>
+			<S.ButtonWrapper>
 				<Button fullSize type="gray" onClick={onCloseModal}>
 					취소
 				</Button>
 				<Button fullSize onClick={onCreateTeam}>
 					팀 생성하기
 				</Button>
-			</CreateTeamButtonGroup>
+			</S.ButtonWrapper>
 		</Card>
 	);
 };

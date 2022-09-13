@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const CreateTeamTitleWrapper = styled.div`
+const TitleWrapper = styled.div`
 	width: 812px;
 	display: flex;
 	justify-content: space-between;
@@ -11,22 +11,29 @@ export const CreateTeamTitleWrapper = styled.div`
 	}
 `;
 
-export const CreateTeamCardWrapper = styled.div`
+const CardWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 `;
 
-export const CreateTeamSkillList = styled.div`
+const SkillList = styled.div`
 	padding-top: 8px;
 	display: flex;
 	align-items: center;
 	gap: 12px;
 `;
 
-export const CreateTeamButtonGroup = styled.div`
+const ButtonWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	padding-top: 20px;
 `;
+
+export default {
+	TitleWrapper,
+	CardWrapper,
+	SkillList,
+	ButtonWrapper
+};
