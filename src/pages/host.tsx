@@ -1,10 +1,6 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Title } from '@with-me/ui';
-import styled from '@emotion/styled';
 
-import Logo from '@components/common/Logo';
-import * as HostComponents from '@components/host';
 import { CreateTeamModal } from '@components/modals';
 import useModal from '@hooks/useModal';
 import useRouterPush from '@hooks/useRouterPush';
@@ -13,26 +9,13 @@ import type { RootState } from '@store/rootReducer';
 import { createTeamAction } from '@store/host/host.actions';
 import { nextHostPageAction, prevHostPageAction } from '@store/host/host.slice';
 import type { CreateTeamAPIBodyType } from '@typings/host';
-
-const { ProgressBar, TeamDesc, TeamGoal, TeamName, TeamSkillSeletor, TeamSuccess } = HostComponents;
-
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 30px;
-	width: 90%;
-	max-width: 812px;
-	margin: 50px auto 0;
-`;
-
-const Wrapper = styled.div`
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-`;
+import HostLayout from '@components/host/HostLayout';
+import TeamGoal from '@components/host/TeamGoal';
+import TeamSkillSeletor from '@components/host/TeamSkillSeletor';
+import TeamName from '@components/host/TeamName';
+import TeamDesc from '@components/host/TeamDesc';
+import TeamSuccess from '@components/host/TeamSuccess';
+import ProgressBar from '@components/host/ProgressBar';
 
 const HostPage = () => {
 	const dispatch = useDispatch();
@@ -80,16 +63,24 @@ const HostPage = () => {
 		[HOST_COMPONENT_DATA, hostPageNum]
 	);
 
+	const preventClose = (e: BeforeUnloadEvent) => {
+		e.preventDefault();
+		e.returnValue = '';
+	};
+
+	useEffect(() => {
+		window.addEventListener('beforeunload', preventClose);
+		return () => {
+			window.removeEventListener('beforeunload', preventClose);
+		};
+	}, []);
+
 	return (
 		<>
-			<Container>
-				<Logo />
-				<Title>{HOST_PAGE_DATA[hostPageNum].title}</Title>
-				<Wrapper>
-					<ProgressBar percent={HOST_PAGE_DATA[hostPageNum].percent} />
-					<HostComponent />
-				</Wrapper>
-			</Container>
+			<HostLayout title={HOST_PAGE_DATA[hostPageNum].title}>
+				<ProgressBar percent={HOST_PAGE_DATA[hostPageNum].percent} />
+				<HostComponent />
+			</HostLayout>
 			<ModalPortal>
 				<CreateTeamModal onCreateTeam={onCreateTeam} onCloseModal={onCloseModal} />
 			</ModalPortal>
