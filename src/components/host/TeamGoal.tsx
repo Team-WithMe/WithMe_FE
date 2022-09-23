@@ -10,6 +10,8 @@ import { colors } from '@styles/theme';
 import type { HostComponentProps, HostGoalType } from '@typings/host';
 import HostCardWrapper from './HostCardWrapper';
 import S from './TeamGoal.styled';
+import useModal from '@hooks/useModal';
+import CommonModal from '@components/modals/CommonModal';
 
 interface TeamGoalProps extends HostComponentProps {
 	onMoveToHome: () => Promise<boolean>;
@@ -18,6 +20,8 @@ interface TeamGoalProps extends HostComponentProps {
 const TeamGoal: FC<TeamGoalProps> = ({ onMoveToHome, onMoveToHostPage }) => {
 	const dispatch = useDispatch();
 	const { teamGoal } = useSelector((state: RootState) => state.host);
+
+	const { ModalPortal, onCloseModal, onOpenModal } = useModal();
 
 	const onChangeGoal = useCallback(
 		(seleteGoal: HostGoalType) => () => dispatch(changeTeamGoalAction(seleteGoal)),
@@ -28,11 +32,6 @@ const TeamGoal: FC<TeamGoalProps> = ({ onMoveToHome, onMoveToHostPage }) => {
 		(currentGoal: HostGoalType) => (teamGoal === currentGoal ? colors.primary : undefined),
 		[teamGoal]
 	);
-
-	const onClickPrevBtn = () => {
-		// TODO confirm 임시, 추후에 check modal 생성하여 리팩토링 예정
-		if (confirm('홈으로 돌아가시겠습니까?')) onMoveToHome();
-	};
 
 	return (
 		<>
@@ -69,13 +68,23 @@ const TeamGoal: FC<TeamGoalProps> = ({ onMoveToHome, onMoveToHostPage }) => {
 				</S.Wrapper>
 			</HostCardWrapper>
 			<S.ButtonWrapper>
-				<Button onClick={onClickPrevBtn} fullSize type="gray">
+				<Button onClick={onOpenModal} fullSize type="gray">
 					홈으로 돌아가기
 				</Button>
 				<Button onClick={onMoveToHostPage('next')} fullSize>
 					다음 단계로 넘어가기
 				</Button>
 			</S.ButtonWrapper>
+			<ModalPortal>
+				<CommonModal
+					title="test"
+					description="test"
+					checkButton="asd"
+					closeButton="asdasd"
+					onClickCheck={() => console.log('test')}
+					onCloseModal={onCloseModal}
+				/>
+			</ModalPortal>
 		</>
 	);
 };
