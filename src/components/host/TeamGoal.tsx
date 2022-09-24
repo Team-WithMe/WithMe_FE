@@ -77,11 +77,11 @@ const TeamGoal: FC<TeamGoalProps> = ({ onMoveToHome, onMoveToHostPage }) => {
 			</S.ButtonWrapper>
 			<ModalPortal>
 				<CommonModal
-					title="test"
-					description="test"
-					checkButton="asd"
-					closeButton="asdasd"
-					onClickCheck={() => console.log('test')}
+					title="홈으로 돌아가시겠습니까?"
+					description="변경사항이 저장되지 않고 홈으로 돌아갑니다."
+					checkButton="확인"
+					closeButton="취소"
+					onClickCheck={onMoveToHome}
 					onCloseModal={onCloseModal}
 				/>
 			</ModalPortal>

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button, Text, Title } from '@with-me/ui';
+import { Text, Title } from '@with-me/ui';
 
 import ModalCloseIcon from '@components/common/ModalCloseIcon';
 import type { ModalProps } from '@typings/common';
@@ -31,11 +31,11 @@ const CommonModal: FC<CommonModalProps> = ({
 		</S.Wrapper>
 		<S.ButtonGruop>
 			{closeButton && (
-				<Button onClick={onCloseModal} type="gray">
+				<S.Button onClick={onCloseModal} type="gray">
 					{closeButton}
-				</Button>
+				</S.Button>
 			)}
-			{checkButton && <Button onClick={onClickCheck}>{checkButton}</Button>}
+			{checkButton && <S.Button onClick={onClickCheck}>{checkButton}</S.Button>}
 		</S.ButtonGruop>
 	</S.Container>
 );
