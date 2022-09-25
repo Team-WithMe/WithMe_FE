@@ -7,7 +7,7 @@ import type { RootState } from '@store/rootReducer';
 import { changeTeamDescAction } from '@store/host/host.slice';
 import type { HostComponentProps } from '@typings/host';
 import HostCardWrapper from './HostCardWrapper';
-import S from './TeamDesc.styled';
+import * as S from './TeamDesc.styled';
 
 interface TeamDescProps extends HostComponentProps {
 	onOpenModal: () => void;

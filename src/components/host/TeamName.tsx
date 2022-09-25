@@ -8,7 +8,7 @@ import { changeTeamNameAction } from '@store/host/host.slice';
 import { ValueClearButton } from '@styles/common.styled';
 import type { HostComponentProps } from '@typings/host';
 import HostCardWrapper from './HostCardWrapper';
-import S from './TeamName.styled';
+import * as S from './TeamName.styled';
 
 const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 	const dispatch = useDispatch();

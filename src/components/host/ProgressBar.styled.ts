@@ -2,23 +2,16 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 
 const gradientKeyframes = keyframes`
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 `;
 
 const gradientAnimation = css`
 	animation: ${gradientKeyframes} 10s ease infinite;
 `;
 
-const Container = styled.div`
+export const Container = styled.div`
 	width: 100%;
 	height: 15px;
 	background-color: white;
@@ -31,7 +24,7 @@ const Container = styled.div`
 	}
 `;
 
-const Item = styled.div<{ percent: number }>`
+export const Item = styled.div<{ percent: number }>`
 	width: ${({ percent }) => percent}%;
 	height: 100%;
 	background: linear-gradient(
@@ -46,5 +39,3 @@ const Item = styled.div<{ percent: number }>`
 	transition: 0.3s;
 	${gradientAnimation};
 `;
-
-export default { Container, Item };

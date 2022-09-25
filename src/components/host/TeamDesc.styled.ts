@@ -1,3 +1,1 @@
-import { ButtonWrapper } from './HostCardWrapper.styled';
-
-export default { ButtonWrapper };
+export { ButtonWrapper } from './HostCardWrapper.styled';

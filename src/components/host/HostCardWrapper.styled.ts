@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const TitleWrapper = styled.div`
+export const TitleWrapper = styled.div`
 	display: flex;
 	align-items: flex-end;
 	gap: 5px;
@@ -8,7 +8,7 @@ const TitleWrapper = styled.div`
 	height: auto;
 `;
 
-const TitleSuffix = styled.div`
+export const TitleSuffix = styled.div`
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -23,5 +23,3 @@ export const ButtonWrapper = styled.div`
 	gap: 10px;
 	margin-bottom: 100px;
 `;
-
-export default { TitleWrapper, TitleSuffix };

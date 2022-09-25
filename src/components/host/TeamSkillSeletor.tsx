@@ -9,7 +9,7 @@ import { colors } from '@styles/theme';
 import type { SkillNameType } from '@typings/common';
 import type { HostComponentProps } from '@typings/host';
 import HostCardWrapper from './HostCardWrapper';
-import S from './TeamSkillSeletor.styled';
+import * as S from './TeamSkillSeletor.styled';
 
 const SKILL_OFFSET = 0 as const;
 const SKILL_LIMIT = 12 as const;

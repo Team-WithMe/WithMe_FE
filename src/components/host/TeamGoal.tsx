@@ -9,7 +9,7 @@ import { changeTeamGoalAction } from '@store/host/host.slice';
 import { colors } from '@styles/theme';
 import type { HostComponentProps, HostGoalType } from '@typings/host';
 import HostCardWrapper from './HostCardWrapper';
-import S from './TeamGoal.styled';
+import * as S from './TeamGoal.styled';
 import useModal from '@hooks/useModal';
 import CommonModal from '@components/modals/CommonModal';
 

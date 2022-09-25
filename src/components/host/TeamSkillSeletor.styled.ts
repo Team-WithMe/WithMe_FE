@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
 import { Card } from '@with-me/ui';
-import { ButtonWrapper } from './HostCardWrapper.styled';
 
-const SkillList = styled.div`
+export { ButtonWrapper } from './HostCardWrapper.styled';
+
+export const SkillList = styled.div`
 	padding-bottom: 12px;
 	display: flex;
 	align-items: center;
 	gap: 8px;
 `;
 
-const Grid = styled.div`
+export const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 8px;
@@ -23,7 +24,7 @@ const Grid = styled.div`
 	}
 `;
 
-const Item = styled(Card)`
+export const Item = styled(Card)`
 	> div {
 		display: flex;
 		flex-direction: column;
@@ -32,5 +33,3 @@ const Item = styled(Card)`
 		gap: 15px;
 	}
 `;
-
-export default { SkillList, Grid, Item, ButtonWrapper };
