@@ -3,15 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import { Button, Text } from '@with-me/ui';
 
-import * as URI from '@lib/constants/image.url';
-import type { RootState } from '@store/rootReducer';
-import { changeTeamGoalAction } from '@store/host/host.slice';
-import { colors } from '@styles/theme';
-import type { HostComponentProps, HostGoalType } from '@typings/host';
-import HostCardWrapper from './HostCardWrapper';
+import { IMG_URL } from '../../constants';
+import { useModal } from '../../hooks';
+import { changeTeamGoalAction, RootState } from '../../store';
+import { colors } from '../../styles';
+import type { HostComponentProps, HostGoalType } from '../../types';
+import { CommonModal, HostCardWrapper } from '../../components';
 import * as S from './TeamGoal.styled';
-import useModal from '@hooks/useModal';
-import CommonModal from '@components/modals/CommonModal';
 
 interface TeamGoalProps extends HostComponentProps {
 	onMoveToHome: () => Promise<boolean>;
@@ -43,7 +41,7 @@ const TeamGoal: FC<TeamGoalProps> = ({ onMoveToHome, onMoveToHostPage }) => {
 						borderColor={goalCardBorderColor('project')}
 						onClick={onChangeGoal('project')}
 					>
-						<Image src={URI.TEAM_GOAL_PROJECT_IMG_URI} width={100} height={100} />
+						<Image src={IMG_URL.TEAM_GOAL_PROJECT_IMG_URI} width={100} height={100} />
 						<S.TextWrapper>
 							<Text color="guide" weight="light">
 								같이 서비스를 만들 팀원을 구해보세요!
@@ -57,7 +55,7 @@ const TeamGoal: FC<TeamGoalProps> = ({ onMoveToHome, onMoveToHostPage }) => {
 						borderColor={goalCardBorderColor('study')}
 						onClick={onChangeGoal('study')}
 					>
-						<Image src={URI.TEAM_GOAL_STUDY_IMG_URI} width={100} height={100} />
+						<Image src={IMG_URL.TEAM_GOAL_STUDY_IMG_URI} width={100} height={100} />
 						<S.TextWrapper>
 							<Text color="guide" weight="light">
 								함께 성장할 팀원을 모아보세요!

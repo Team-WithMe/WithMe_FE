@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { Close } from '@with-me/icons';
 import { Button, Card, Text, Title } from '@with-me/ui';
 
-import { SKILLS } from '@lib/constants/skills';
+import { SKILLS } from '@src/constants/skills';
 import { RootState } from '@store/rootReducer';
-import type { ModalProps } from '@typings/common';
+import type { ModalProps } from '@src/types/common';
 import S from './CreateTeamModal.styled';
 
 interface CreateTeamModalProps extends ModalProps {

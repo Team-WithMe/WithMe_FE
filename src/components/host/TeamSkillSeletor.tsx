@@ -2,12 +2,12 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Text } from '@with-me/ui';
 
-import { SKILLS } from '@lib/constants/skills';
+import { SKILLS } from '@src/constants/skills';
 import { RootState } from '@store/rootReducer';
 import { changeTeamSkillAction } from '@store/host/host.slice';
 import { colors } from '@styles/theme';
-import type { SkillNameType } from '@typings/common';
-import type { HostComponentProps } from '@typings/host';
+import type { SkillNameType } from '@src/types/common';
+import type { HostComponentProps } from '@src/types/host';
 import HostCardWrapper from './HostCardWrapper';
 import * as S from './TeamSkillSeletor.styled';
 

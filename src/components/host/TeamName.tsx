@@ -6,7 +6,7 @@ import useInput from '@hooks/useInput';
 import { RootState } from '@store/rootReducer';
 import { changeTeamNameAction } from '@store/host/host.slice';
 import { ValueClearButton } from '@styles/common.styled';
-import type { HostComponentProps } from '@typings/host';
+import type { HostComponentProps } from '@src/types/host';
 import HostCardWrapper from './HostCardWrapper';
 import * as S from './TeamName.styled';
 

@@ -1,4 +1,3 @@
-//* host static data
 export const HOST_PAGE_DATA = [
 	{ title: '팀 목적 정하기', percent: 20 },
 	{ title: '기술 선택하기', percent: 40 },

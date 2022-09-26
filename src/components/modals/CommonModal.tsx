@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Text, Title } from '@with-me/ui';
 
 import ModalCloseIcon from '@components/common/ModalCloseIcon';
-import type { ModalProps } from '@typings/common';
+import type { ModalProps } from '@src/types/common';
 import * as S from './CommonModal.styled';
 
 interface CommonModalProps extends ModalProps {

@@ -4,9 +4,9 @@ import { Card, Title } from '@with-me/ui';
 
 import AppLayout from '@components/common/AppLayout';
 import Navbar from '@components/common/Navbar';
-import { MY_DETAIL_PAGE_NAME } from '@lib/constants/mypage';
+import { MY_DETAIL_PAGE_NAME } from '@src/constants/mypage';
 import { colors } from '@styles/theme';
-import type { NavItemType } from '@typings/common';
+import type { NavItemType } from '@src/types/common';
 import ProfileCard from './ProfileCard';
 import { MyPageLayoutContainer, MyPageLayoutWrapper } from './mypage.styled';
 

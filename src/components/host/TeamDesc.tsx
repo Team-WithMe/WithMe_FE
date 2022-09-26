@@ -5,7 +5,7 @@ import { Button, Text, Textarea } from '@with-me/ui';
 import useInput from '@hooks/useInput';
 import type { RootState } from '@store/rootReducer';
 import { changeTeamDescAction } from '@store/host/host.slice';
-import type { HostComponentProps } from '@typings/host';
+import type { HostComponentProps } from '@src/types/host';
 import HostCardWrapper from './HostCardWrapper';
 import * as S from './TeamDesc.styled';
 

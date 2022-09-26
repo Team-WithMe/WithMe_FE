@@ -4,7 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 
 import GlobalStyle from '@styles/GlobalStyle';
 import theme from '@styles/theme';
-import wrapper from '@store/index';
+import { wrapper } from '../store';
 import '@with-me/style/dist/global.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

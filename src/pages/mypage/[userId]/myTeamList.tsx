@@ -10,8 +10,8 @@ import {
 	MyPageWrapper,
 	MyTeamSkillList
 } from '@components/mypage/mypage.styled';
-import { SKILLS } from '@lib/constants/skills';
-import type { SkillNameType } from '@typings/common';
+import { SKILLS } from '@src/constants/skills';
+import type { SkillNameType } from '@src/types/common';
 
 const DUMMY_DATA = [
 	{

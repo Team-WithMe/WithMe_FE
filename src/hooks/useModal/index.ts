@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { ANIMATION_TIME } from '@lib/constants';
+import { ANIMATION_TIME } from '@src/constants';
 import ModalPortal from './ModalPortal';
 
 const useModal = () => {

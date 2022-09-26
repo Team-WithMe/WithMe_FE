@@ -1,7 +1,7 @@
 import { AnyAction, CombinedState, combineReducers } from 'redux';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { IRootState } from '@typings/reduxState';
+import { IRootState } from '@src/types/reduxState';
 import hostSlice from '@store/host/host.slice';
 
 const rootReducer = (state: IRootState, action: AnyAction): CombinedState<IRootState> => {

@@ -1,5 +1,5 @@
 import { AxiosPromise } from 'axios';
-import type { CreateTeamAPIBodyType } from '@typings/host';
+import type { CreateTeamAPIBodyType } from '@src/types/host';
 import { post } from './index';
 
 const { NEXT_PUBLIC_SERVER_URI } = process.env;

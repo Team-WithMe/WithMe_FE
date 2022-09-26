@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
-import { ANIMATION_TIME } from '@lib/constants';
+import { ANIMATION_TIME } from '@src/constants';
 
 const backDropFadeIn = keyframes`
 	0% { background-color: rgba(0, 0, 0, 0.25); }
