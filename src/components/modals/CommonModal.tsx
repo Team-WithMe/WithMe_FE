@@ -1,16 +1,15 @@
 import { FC } from 'react';
 import { Text, Title } from '@with-me/ui';
 
-import ModalCloseIcon from '@components/common/ModalCloseIcon';
-import type { ModalProps } from '@src/types/common';
+import type { ModalProps } from '../../types';
 import * as S from './CommonModal.styled';
 
 interface CommonModalProps extends ModalProps {
-	title?: string;
-	description?: string;
-	closeButton?: string;
 	checkButton?: string;
+	closeButton?: string;
+	description?: string;
 	onClickCheck?: () => void;
+	title?: string;
 }
 
 const CommonModal: FC<CommonModalProps> = ({
@@ -22,7 +21,7 @@ const CommonModal: FC<CommonModalProps> = ({
 	title
 }) => (
 	<S.Container>
-		<ModalCloseIcon onClick={onCloseModal} />
+		<S.CloseIcon onClick={onCloseModal} />
 		<S.Wrapper>
 			<Title size="h5">{title}</Title>
 			<Text size="sm" color="description">

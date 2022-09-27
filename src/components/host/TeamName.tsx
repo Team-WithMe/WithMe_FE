@@ -2,12 +2,10 @@ import { ChangeEvent, CSSProperties, FC, useMemo, useRef, useState } from 'react
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input } from '@with-me/ui';
 
-import useInput from '@hooks/useInput';
-import { RootState } from '@store/rootReducer';
-import { changeTeamNameAction } from '@store/host/host.slice';
-import { ValueClearButton } from '@styles/common.styled';
-import type { HostComponentProps } from '@src/types/host';
-import HostCardWrapper from './HostCardWrapper';
+import { ClearIcon, HostCardWrapper } from '../../components';
+import { useInput } from '../../hooks';
+import { changeTeamNameAction, RootState } from '../../store';
+import type { HostComponentProps } from '../../types';
 import * as S from './TeamName.styled';
 
 const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
@@ -51,7 +49,7 @@ const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {
 					error={teamNameValid}
 					errorMsg="팀 이름은 필수입니다!"
 					style={inputStyled}
-					suffix={<ValueClearButton onClick={onClearValue} />}
+					suffix={<ClearIcon onClick={onClearValue} />}
 				/>
 			</HostCardWrapper>
 			<S.ButtonWrapper>

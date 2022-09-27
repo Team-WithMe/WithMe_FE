@@ -1,21 +1,20 @@
 import { useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { CreateTeamModal } from '@components/modals';
-import useModal from '@hooks/useModal';
-import useRouterPush from '@hooks/useRouterPush';
-import { HOST_PAGE_DATA } from '@src/constants/host';
-import type { RootState } from '@store/rootReducer';
-import { createTeamAction } from '@store/host/host.actions';
-import { nextHostPageAction, prevHostPageAction } from '@store/host/host.slice';
-import type { CreateTeamAPIBodyType } from '@src/types/host';
-import HostLayout from '@components/host/HostLayout';
-import TeamGoal from '@components/host/TeamGoal';
-import TeamSkillSeletor from '@components/host/TeamSkillSeletor';
-import TeamName from '@components/host/TeamName';
-import TeamDesc from '@components/host/TeamDesc';
-import TeamSuccess from '@components/host/TeamSuccess';
-import ProgressBar from '@components/host/ProgressBar';
+import {
+	CreateTeamModal,
+	HostLayout,
+	ProgressBar,
+	TeamDesc,
+	TeamGoal,
+	TeamName,
+	TeamSkillSeletor,
+	TeamSuccess
+} from '../components';
+import { HOST_PAGE_DATA } from '../constants';
+import { useModal, useRouterPush } from '../hooks';
+import { createTeamAction, nextHostPageAction, prevHostPageAction, RootState } from '../store';
+import type { CreateTeamAPIBodyType } from '../types';
 
 const HostPage = () => {
 	const dispatch = useDispatch();
@@ -45,7 +44,7 @@ const HostPage = () => {
 		dispatch(createTeamAction(data) as any);
 	}, [dispatch, teamDesc, teamGoal, teamName, teamSkills]);
 
-	//* team 생성 스탭 별 컴포넌트 목록
+	/** @description team 생성 스탭 별 컴포넌트 목록 */
 	const HOST_COMPONENT_DATA = useMemo(
 		() => ({
 			0: <TeamGoal onMoveToHostPage={onMoveToHostPage} onMoveToHome={onMoveToPage('/')} />,
@@ -57,7 +56,7 @@ const HostPage = () => {
 		[onMoveToPage, onMoveToHostPage, onOpenModal]
 	);
 
-	//* 해당 스탭에 컴포넌트 랜더링
+	/** @description 해당 스탭에 컴포넌트 랜더링 */
 	const HostComponent = useCallback(
 		() => HOST_COMPONENT_DATA[hostPageNum],
 		[HOST_COMPONENT_DATA, hostPageNum]
@@ -68,6 +67,7 @@ const HostPage = () => {
 		e.returnValue = '';
 	};
 
+	/** @description host page내 새로고침 한번 더 확인 */
 	useEffect(() => {
 		window.addEventListener('beforeunload', preventClose);
 		return () => {
