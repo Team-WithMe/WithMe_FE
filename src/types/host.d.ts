@@ -1,4 +1,4 @@
-export type HostGoalType = 'project' | 'study';
+export type CategoryType = 'project' | 'study';
 
 export type HostPageNumType = 0 | 1 | 2 | 3 | 4;
 
@@ -7,7 +7,7 @@ export interface HostComponentProps {
 }
 
 export interface CreateTeamAPIBodyType {
-	goal: HostGoalType;
+	category: CategoryType;
 	skills: string[];
 	name: string;
 	description: string;

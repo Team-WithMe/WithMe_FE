@@ -13,7 +13,7 @@ interface TeamDescProps extends HostComponentProps {
 }
 
 /** @description 최대 입력 글자 수 */
-const MAX_NUMBER = 800 as const;
+const MAX_NUMBER = 80 as const;
 
 const TeamDesc: FC<TeamDescProps> = ({ onMoveToHostPage, onOpenModal }) => {
 	const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const TeamDesc: FC<TeamDescProps> = ({ onMoveToHostPage, onOpenModal }) => {
 				description={`공백없이 최대 ${MAX_NUMBER}자 이내로 입력해주세요!`}
 			>
 				<S.DescTextArea
-					rows={5}
+					rows={3}
 					autoSize
 					value={value}
 					onChange={onChange}

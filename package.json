@@ -38,11 +38,11 @@
 		"@with-me/style": "^0.7.0",
 		"@with-me/ui": "^0.7.0",
 		"axios": "^0.27.2",
-		"next": "^12.2.5",
-		"next-redux-wrapper": "^7.0.5",
+		"next": "^12.3.1",
+		"next-redux-wrapper": "^8.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"react-redux": "^8.0.2"
+		"react-redux": "^8.0.4"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.1.2",

@@ -1,10 +1,10 @@
-import { FC } from 'react';
-import { Text, Title } from '@with-me/ui';
-
+import { FC, ReactNode } from 'react';
+import { Title } from '@with-me/ui';
 import type { ModalProps } from '../../types';
 import * as S from './CommonModal.styled';
 
 interface CommonModalProps extends ModalProps {
+	children?: ReactNode;
 	checkButton?: string;
 	closeButton?: string;
 	description?: string;
@@ -14,9 +14,9 @@ interface CommonModalProps extends ModalProps {
 
 const CommonModal: FC<CommonModalProps> = ({
 	onCloseModal,
+	children,
 	checkButton,
 	closeButton,
-	description,
 	onClickCheck,
 	title
 }) => (
@@ -24,9 +24,7 @@ const CommonModal: FC<CommonModalProps> = ({
 		<S.CloseIcon onClick={onCloseModal} />
 		<S.Wrapper>
 			<Title size="h5">{title}</Title>
-			<Text size="sm" color="description">
-				{description}
-			</Text>
+			{children}
 		</S.Wrapper>
 		<S.ButtonGruop>
 			{closeButton && (
