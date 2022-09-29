@@ -1,72 +1,74 @@
 {
-	"name": "with-me",
-	"description": "with-me front-end repository",
-	"private": true,
-	"module": "type",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Team-WithMe/WithMe_FE"
-	},
-	"lint-staged": {
-		"*.{ts,tsx}": [
-			"eslint --fix",
-			"prettier --write"
-		]
-	},
-	"config": {
-		"commitizen": {
-			"path": "cz-conventional-changelog"
-		}
-	},
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
-		"prepare": "husky install",
-		"commit": "git add . && yarn git-cz",
-		"clean": "yarn clean:dist && yarn clean:logs && yarn clean:modules",
-		"clean:dist": "bash ./scripts/clean-dist.sh",
-		"clean:logs": "bash ./scripts/clean-error-log.sh",
-		"clean:modules": "bash ./scripts/clean-node-modules.sh"
-	},
-	"dependencies": {
-		"@emotion/react": "^11.9.0",
-		"@emotion/styled": "^11.10.4",
-		"@reduxjs/toolkit": "^1.8.5",
-		"@with-me/icons": "^0.7.0",
-		"@with-me/style": "^0.7.0",
-		"@with-me/ui": "^0.7.0",
-		"axios": "^0.27.2",
-		"next": "^12.3.1",
-		"next-redux-wrapper": "^8.0.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-redux": "^8.0.4"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^17.1.2",
-		"@commitlint/config-conventional": "^17.1.0",
-		"@emotion/babel-plugin": "^11.10.2",
-		"@types/node": "^18.7.14",
-		"@types/react": "^18.0.18",
-		"@types/react-dom": "^18.0.6",
-		"@typescript-eslint/eslint-plugin": "^5.36.1",
-		"@typescript-eslint/parser": "^5.36.1",
-		"babel-eslint": "^10.1.0",
-		"commitizen": "^4.2.5",
-		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.23.0",
-		"eslint-config-next": "^12.2.5",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-config-react-app": "^7.0.1",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-react": "^7.31.4",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"husky": "^8.0.1",
-		"lint-staged": "^13.0.3",
-		"prettier": "^2.7.1",
-		"typescript": "^4.8.2"
-	}
+  "name": "with-me",
+  "description": "with-me front-end repository",
+  "private": true,
+  "module": "type",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Team-WithMe/WithMe_FE"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "commit": "git add . && yarn git-cz",
+    "clean": "yarn clean:dist && yarn clean:logs && yarn clean:modules",
+    "clean:dist": "bash ./scripts/clean-dist.sh",
+    "clean:logs": "bash ./scripts/clean-error-log.sh",
+    "clean:modules": "bash ./scripts/clean-node-modules.sh",
+    "update": "yarn upgrade && yarn syncyarnlock -s -k"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@reduxjs/toolkit": "^1.8.5",
+    "@with-me/icons": "^0.7.0",
+    "@with-me/style": "^0.7.0",
+    "@with-me/ui": "^0.7.0",
+    "axios": "^0.27.2",
+    "next": "^12.3.1",
+    "next-redux-wrapper": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@emotion/babel-plugin": "^11.10.2",
+    "@types/node": "^18.7.23",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.24.0",
+    "eslint-config-next": "^12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "syncyarnlock": "^1.0.19",
+    "typescript": "^4.8.4"
+  }
 }
