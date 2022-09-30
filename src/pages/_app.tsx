@@ -1,13 +1,16 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { Provider } from 'react-redux';
 import { ThemeProvider } from '@emotion/react';
 
-import GlobalStyle from '@styles/GlobalStyle';
-import theme from '@styles/theme';
+import { theme, GlobalStyle } from '../styles';
 import { wrapper } from '../store';
 import '@with-me/style/dist/global.css';
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, ...rest }: AppProps) => {
+	const { store, props } = wrapper.useWrappedStore(rest);
+	const { pageProps } = props;
+
 	return (
 		<>
 			<Head>
@@ -16,13 +19,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 				</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<GlobalStyle />
-			<ThemeProvider theme={theme}>
-				<Component {...pageProps} />
-				<div id="root-modal" />
-			</ThemeProvider>
+			<Provider store={store}>
+				<GlobalStyle />
+				<ThemeProvider theme={theme}>
+					<Component {...pageProps} />
+					<div id="root-modal" />
+				</ThemeProvider>
+			</Provider>
 		</>
 	);
 };
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;
