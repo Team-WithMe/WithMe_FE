@@ -31,7 +31,7 @@
 		"clean:modules": "bash ./scripts/clean-node-modules.sh"
 	},
 	"dependencies": {
-		"@emotion/react": "^11.9.0",
+		"@emotion/react": "^11.10.5",
 		"@emotion/styled": "^11.10.4",
 		"@reduxjs/toolkit": "^1.8.5",
 		"@with-me/icons": "^0.7.0",
