@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Card, Text, Title } from '@with-me/ui';
-import S from './HostCardWrapper.styled';
+import * as S from './HostCardWrapper.styled';
 
 interface HostCardWrapperProps {
 	children: ReactNode;

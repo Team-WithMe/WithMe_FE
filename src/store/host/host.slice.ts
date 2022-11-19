@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { IHostState } from '@typings/reduxState';
-import type { SkillNameType } from '@typings/common';
-import type { HostGoalType } from '@typings/host';
+import type { IHostState } from '@src/types/reduxState';
+import type { SkillNameType } from '@src/types/common';
+import type { HostGoalType } from '@src/types/host';
 import { createTeamAction } from './host.actions';
 
 const initialState: IHostState = {

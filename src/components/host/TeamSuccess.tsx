@@ -1,4 +1,4 @@
-import S from './TeamSuccess.styled';
+import * as S from './TeamSuccess.styled';
 
 const TeamSuccess = () => {
 	return <S.Container>TeamSuccess</S.Container>;

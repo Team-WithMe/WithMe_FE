@@ -1,20 +1,19 @@
-import { CSSProperties, FC, useEffect, useMemo } from 'react';
+import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Text, Textarea } from '@with-me/ui';
+import { Button, Text } from '@with-me/ui';
 
-import useInput from '@hooks/useInput';
-import type { RootState } from '@store/rootReducer';
-import { changeTeamDescAction } from '@store/host/host.slice';
-import type { HostComponentProps } from '@typings/host';
-import HostCardWrapper from './HostCardWrapper';
-import S from './TeamDesc.styled';
+import { HostCardWrapper } from '../../components';
+import { useInput } from '../../hooks';
+import { changeTeamDescAction, RootState } from '../../store';
+import type { HostComponentProps } from '../../types';
+import * as S from './TeamDesc.styled';
 
 interface TeamDescProps extends HostComponentProps {
 	onOpenModal: () => void;
 }
 
 /** @description 최대 입력 글자 수 */
-const MAX_NUMBER = 800 as const;
+const MAX_NUMBER = 80 as const;
 
 const TeamDesc: FC<TeamDescProps> = ({ onMoveToHostPage, onOpenModal }) => {
 	const dispatch = useDispatch();
@@ -29,11 +28,6 @@ const TeamDesc: FC<TeamDescProps> = ({ onMoveToHostPage, onOpenModal }) => {
 		onOpenModal();
 	};
 
-	const textareaStyled: CSSProperties = useMemo(
-		() => ({ paddingRight: '58px', lineHeight: '1.3' }),
-		[]
-	);
-
 	useEffect(() => {
 		if (createTeamDone) onMoveToHostPage('next')();
 	}, [createTeamDone, onMoveToHostPage]);
@@ -44,18 +38,16 @@ const TeamDesc: FC<TeamDescProps> = ({ onMoveToHostPage, onOpenModal }) => {
 				title="📙 팀의 설명을 입력해주세요!"
 				description={`공백없이 최대 ${MAX_NUMBER}자 이내로 입력해주세요!`}
 			>
-				<Textarea
-					rows={5}
+				<S.DescTextArea
+					rows={3}
 					autoSize
 					value={value}
 					onChange={onChange}
-					style={textareaStyled}
 					placeholder="팀의 설명을 입력해주세요!"
 					suffix={
-						<Text
-							size="xs"
-							color={`${value.length > MAX_NUMBER ? 'error' : 'guide'}`}
-						>{`${value.length}/${MAX_NUMBER}`}</Text>
+						<Text size="xs" color={`${value.length > MAX_NUMBER ? 'error' : 'guide'}`}>
+							{`${value.length}/${MAX_NUMBER}`}
+						</Text>
 					}
 				/>
 			</HostCardWrapper>

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import S from './ProgressBar.styled';
+import * as S from './ProgressBar.styled';
 
 const ProgressBar: FC<{ percent: number }> = ({ percent }) => (
 	<S.Container>

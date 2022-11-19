@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createTeamAPI } from '@lib/api/host.apis';
-import type { CreateTeamAPIBodyType } from '@typings/host';
+import type { CreateTeamAPIBodyType } from '@src/types/host';
 
 export const createTeamAction = createAsyncThunk(
 	'team/create',

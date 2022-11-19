@@ -2,14 +2,12 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Text } from '@with-me/ui';
 
-import { SKILLS } from '@lib/constants/skills';
-import { RootState } from '@store/rootReducer';
-import { changeTeamSkillAction } from '@store/host/host.slice';
-import { colors } from '@styles/theme';
-import type { SkillNameType } from '@typings/common';
-import type { HostComponentProps } from '@typings/host';
-import HostCardWrapper from './HostCardWrapper';
-import S from './TeamSkillSeletor.styled';
+import { HostCardWrapper } from '../../components';
+import { SKILLS } from '../../constants/skills';
+import { changeTeamSkillAction, RootState } from '../../store';
+import { colors } from '../../styles';
+import type { HostComponentProps, SkillNameType } from '../../types';
+import * as S from './TeamSkillSeletor.styled';
 
 const SKILL_OFFSET = 0 as const;
 const SKILL_LIMIT = 12 as const;
