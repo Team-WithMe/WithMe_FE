@@ -1,4 +1,8 @@
-import { Global, css, useTheme } from '@emotion/react';
+import '@with-me/style/dist/global.css';
+
+import { css, Global, useTheme } from '@emotion/react';
+
+import { Pretendard } from './shared/fontFace';
 
 const GlobalStyle = () => {
 	const { colors } = useTheme();
@@ -6,6 +10,8 @@ const GlobalStyle = () => {
 	return (
 		<Global
 			styles={css`
+				${Pretendard}
+
 				html {
 					font-family: Pretendard;
 					font-size: 100%;
