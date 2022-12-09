@@ -2,10 +2,10 @@ import { ChangeEvent, CSSProperties, FC, useMemo, useRef, useState } from 'react
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input } from '@with-me/ui';
 
-import { ClearIcon, HostCardWrapper } from '../../components';
-import { useInput } from '../../hooks';
-import { changeTeamNameAction, RootState } from '../../store';
-import type { HostComponentProps } from '../../types';
+import { ClearIcon, HostCardWrapper } from '..';
+import { useInput } from '../../src/hooks';
+import { changeTeamNameAction, RootState } from '../../src/store';
+import type { HostComponentProps } from '../../src/types';
 import * as S from './TeamName.styled';
 
 const TeamName: FC<HostComponentProps> = ({ onMoveToHostPage }) => {

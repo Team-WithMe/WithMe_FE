@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import { Button, Text } from '@with-me/ui';
 
-import { CommonModal, HostCardWrapper } from '../../components';
-import { IMG_URL } from '../../constants';
-import { useModal } from '../../hooks';
-import { changeTeamGoalAction, RootState } from '../../store';
-import { colors } from '../../styles';
-import type { HostComponentProps, CategoryType } from '../../types';
+import { CommonModal, HostCardWrapper } from '..';
+import { IMG_URL } from '../../src/constants';
+import { useModal } from '../../src/hooks';
+import { changeTeamGoalAction, RootState } from '../../src/store';
+import { colors } from '../../src/styles';
+import type { HostComponentProps, CategoryType } from '../../src/types';
 import * as S from './TeamGoal.styled';
 
 interface TeamGoalProps extends HostComponentProps {

@@ -2,10 +2,10 @@ import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Text } from '@with-me/ui';
 
-import { HostCardWrapper } from '../../components';
-import { useInput } from '../../hooks';
-import { changeTeamDescAction, RootState } from '../../store';
-import type { HostComponentProps } from '../../types';
+import { HostCardWrapper } from '..';
+import { useInput } from '../../src/hooks';
+import { changeTeamDescAction, RootState } from '../../src/store';
+import type { HostComponentProps } from '../../src/types';
 import * as S from './TeamDesc.styled';
 
 interface TeamDescProps extends HostComponentProps {

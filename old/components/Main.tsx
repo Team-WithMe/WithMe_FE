@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Button } from '@with-me/ui';
 
-import { HomeWrapper } from '@components/Home.styled';
+import { HomeWrapper } from 'components/Home.styled';
 import useModal from '@hooks/useModal';
 import useRouterPush from '@hooks/useRouterPush';
 import * as URI from '@src/constants/image.url';

@@ -2,11 +2,11 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Text } from '@with-me/ui';
 
-import { HostCardWrapper } from '../../components';
-import { SKILLS } from '../../constants/skills';
-import { changeTeamSkillAction, RootState } from '../../store';
-import { colors } from '../../styles';
-import type { HostComponentProps, SkillNameType } from '../../types';
+import { HostCardWrapper } from '..';
+import { SKILLS } from '../../src/constants/skills';
+import { changeTeamSkillAction, RootState } from '../../src/store';
+import { colors } from '../../src/styles';
+import type { HostComponentProps, SkillNameType } from '../../src/types';
 import * as S from './TeamSkillSeletor.styled';
 
 const SKILL_OFFSET = 0 as const;

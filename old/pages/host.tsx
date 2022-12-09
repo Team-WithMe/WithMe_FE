@@ -15,7 +15,7 @@ import {
 import { HOST_PAGE_DATA, SKILLS } from '../constants';
 import { useModal, useRouterPush } from '../hooks';
 import { createTeamAction, nextHostPageAction, prevHostPageAction, RootState } from '../store';
-import type { CreateTeamAPIBodyType } from '../types';
+import type { CreateTeamAPIBodyType } from '../../src/types/global';
 
 const HostPage = () => {
 	const dispatch = useDispatch();

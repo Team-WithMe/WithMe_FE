@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Title } from '@with-me/ui';
-import type { ModalProps } from '../../types';
+import type { ModalProps } from '../../src/types';
 import * as S from './CommonModal.styled';
 
 interface CommonModalProps extends ModalProps {

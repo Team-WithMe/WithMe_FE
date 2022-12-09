@@ -1,4 +1,4 @@
-import MyPageLayout from '@components/mypage/MyPageLayout';
+import MyPageLayout from 'components/mypage/MyPageLayout';
 
 const MyArticle = () => {
 	return <MyPageLayout>MyArticle</MyPageLayout>;

@@ -1,12 +1,12 @@
 import React, { useState, FC } from 'react';
 
-import Header from '@components/common/Header';
-import Footer from '@components/common/Footer';
-import Card from '@components/Card';
-import { TeamWrapper } from '@components/team.styled';
+import Header from 'components/common/Header';
+import Footer from 'components/common/Footer';
+import Card from 'components/Card';
+import { TeamWrapper } from 'components/team.styled';
 import useModal from '@hooks/useModal';
 import { Button } from '@with-me/ui';
-import { StackModalWrapper } from '@components/stack.styled';
+import { StackModalWrapper } from 'components/stack.styled';
 import { Close } from '@with-me/icons';
 
 const TestModal: FC<{ onCloseModal: () => void }> = ({ onCloseModal }) => {

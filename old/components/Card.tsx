@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import { CardWrapper } from '@components/Card.styled';
+import { CardWrapper } from 'components/Card.styled';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 

@@ -1,6 +1,6 @@
 import type { FC, SVGProps } from 'react';
 import * as icons from '@with-me/icons';
-import type { SkillNameType } from '../types';
+import type { SkillNameType } from '../../src/types/global';
 
 interface SkillsType {
 	id: number;

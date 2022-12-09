@@ -2,8 +2,8 @@ import { CSSProperties, FC, ReactNode, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { Card, Title } from '@with-me/ui';
 
-import AppLayout from '@components/common/AppLayout';
-import Navbar from '@components/common/Navbar';
+import AppLayout from 'components/common/AppLayout';
+import Navbar from 'components/common/Navbar';
 import { MY_DETAIL_PAGE_NAME } from '@src/constants/mypage';
 import { colors } from '@styles/theme';
 import type { NavItemType } from '@src/types/common';

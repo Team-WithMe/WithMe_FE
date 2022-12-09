@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import styled from '@emotion/styled';
-import Header from '@components/common/Header';
-import Footer from '@components/common/Footer';
+import Header from 'components/common/Header';
+import Footer from 'components/common/Footer';
 
 const AllWrapper = styled.div`
 	min-height: 100vh;

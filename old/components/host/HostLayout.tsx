@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Title } from '@with-me/ui';
-import { Logo } from '../../components';
+import { Logo } from '..';
 import * as S from './HostLayout.styled';
 
 interface HostLayoutProps {

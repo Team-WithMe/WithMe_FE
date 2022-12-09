@@ -2,14 +2,14 @@ import { CSSProperties, useMemo } from 'react';
 import Link from 'next/link';
 import { Button, Text, Title } from '@with-me/ui';
 
-import MyPageLayout from '@components/mypage/MyPageLayout';
+import MyPageLayout from 'components/mypage/MyPageLayout';
 import {
 	MyPageContentGruop,
 	MyPageContentItem,
 	MyPageTitleWrapper,
 	MyPageWrapper,
 	MyTeamSkillList
-} from '@components/mypage/mypage.styled';
+} from 'components/mypage/mypage.styled';
 import { SKILLS } from '@src/constants/skills';
 import type { SkillNameType } from '@src/types/common';
 

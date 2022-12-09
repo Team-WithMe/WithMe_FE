@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Reducer, AnyAction } from 'redux';
 import { createWrapper } from 'next-redux-wrapper';
 
-import type { IRootState } from '../types';
+import type { IRootState } from '../../src/types';
 import rootReducer from './rootReducer';
 
 const isDev = process.env.NODE_ENV === 'development';
