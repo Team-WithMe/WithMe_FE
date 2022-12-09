@@ -3,9 +3,11 @@
 const nextConfig = {
 	reactStrictMode: true,
 	compiler: {
-		emotion: true,
-		autoLabel: 'dev-only',
-		labelFormat: '[dirname]-[filename]-[local]'
+		emotion: {
+			sourceMap: true,
+			autoLabel: 'dev-only',
+			labelFormat: '[local]'
+		}
 	}
 };
 
