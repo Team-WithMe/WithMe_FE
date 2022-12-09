@@ -1,13 +1,12 @@
 import { colors } from './colors';
-import { device, deviceSizes } from './device';
-import { fontSizes } from './sizes';
+import { deviceSizes, mediaQueries } from './device';
 
-export { fontSizes } from './sizes';
-export { colors } from './colors';
-export { device, deviceSizes } from './device';
-export default {
-	fontSizes,
+const theme = {
 	colors,
-	deviceSizes,
-	device
+	device: {
+		deviceSizes,
+		mediaQueries
+	}
 };
+
+export default theme;
