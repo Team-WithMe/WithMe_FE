@@ -2,10 +2,11 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '@emotion/react';
+import '@with-me/style/dist/global.css';
 
 import { theme, GlobalStyle } from '../styles';
 import { wrapper } from '../store';
-import '@with-me/style/dist/global.css';
+import '../../public/static/fonts/style.css';
 
 const MyApp = ({ Component, ...rest }: AppProps) => {
 	const { store, props } = wrapper.useWrappedStore(rest);
@@ -20,8 +21,8 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Provider store={store}>
-				<GlobalStyle />
 				<ThemeProvider theme={theme}>
+					<GlobalStyle />
 					<Component {...pageProps} />
 					<div id="root-modal" />
 				</ThemeProvider>
