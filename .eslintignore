@@ -2,6 +2,7 @@ node_modules/
 .cache/
 dist/
 build/
+old/
 
 package-lock.json
 yarn.lock

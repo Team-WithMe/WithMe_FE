@@ -22,6 +22,15 @@
 
 <br />
 
+## 🪄 eslint plugin
+
+- eslint-plugin-sort-keys-custom-order: type과 object의 키를 자동으로 정렬 해주는 플러그인
+- eslint-plugin-simple-import-sort: import/export를 자동으로 정렬해주는 플러그인
+- eslint-plugin-import: eslint-plugin-simple-import-sort와 함께 사용하여 기능 확장
+- eslint-plugin-unused-imports: 사용하지 않는 것을 삭제하거나 누락 된 것을 자동으로 추가하는 플러그인
+
+<br />
+
 ## 👨‍💻 Member
 
 |                    [LeeBonHoon](https://github.com/LeeBonHoon)                    |                   [changyuyeo](https://github.com/changyuyeo)                    |                   [KimTeaSick](https://github.com/KimTeaSick)                    |
