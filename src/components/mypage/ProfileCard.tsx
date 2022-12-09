@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Button, Card, Input, Text } from '@with-me/ui';
 
 import useInput from '@hooks/useInput';
-import { DEFAULT_USER_IMG_URI } from '@lib/constants/image.url';
+import { DEFAULT_USER_IMG_URI } from '@src/constants/image.url';
 import { ValueClearButton } from '@styles/common.styled';
 import { colors } from '@styles/theme';
 import { ProfileBtnGroup, ProfileWrapper } from './mypage.styled';

@@ -1,32 +1,34 @@
-import { useCallback, useMemo } from 'react';
+import { Text } from '@with-me/ui';
+import { CSSProperties, Dispatch, useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import type { NextPage } from 'next';
-import { Title } from '@with-me/ui';
 
-import Logo from '@components/common/Logo';
-import { HostContainer, HostContentWrapper } from '@components/host/host.styled';
-import ProgressBar from '@components/host/ProgressBar';
-import TeamDesc from '@components/host/TeamDesc';
-import TeamGoal from '@components/host/TeamGoal';
-import TeamName from '@components/host/TeamName';
-import TeamSkillSeletor from '@components/host/TeamSkillSeletor';
-import TeamSuccess from '@components/host/TeamSuccess';
-import CreateTeamModal from '@components/modals/CreateTeamModal';
-import useModal from '@hooks/useModal';
-import { HOST_PAGE_DATA } from '@lib/constants/host';
-import type { RootState } from '@store/rootReducer';
-import { createTeamAction } from '@store/host/host.actions';
-import { nextHostPageAction, prevHostPageAction } from '@store/host/host.slice';
-import type { CreateTeamAPIBodyType } from '@typings/host';
-import { Dispatch } from '@reduxjs/toolkit';
+import {
+	CommonModal,
+	HostLayout,
+	ProgressBar,
+	TeamDesc,
+	TeamGoal,
+	TeamName,
+	TeamSkillSeletor,
+	TeamSuccess
+} from '../components';
+import { HOST_PAGE_DATA, SKILLS } from '../constants';
+import { useModal, useRouterPush } from '../hooks';
+import { createTeamAction, nextHostPageAction, prevHostPageAction, RootState } from '../store';
+import type { CreateTeamAPIBodyType } from '../types';
 
-const HostPage: NextPage = () => {
+const HostPage = () => {
 	const dispatch = useDispatch();
 	const { hostPageNum, teamGoal, teamSkills, teamName, teamDesc } = useSelector(
 		(state: RootState) => state.host
 	);
 
-	const { ModalPortal, onCloseModal, onOpenModal } = useModal();
+	const {
+		ModalPortal: CreateTeamModalProtal,
+		onCloseModal: onCloseCreateTeamModal,
+		onOpenModal: onOpenCreateTeamModal
+	} = useModal();
+	const { onMoveToPage } = useRouterPush();
 
 	const onMoveToHostPage = useCallback(
 		(move: 'prev' | 'next') => () => {
@@ -38,7 +40,7 @@ const HostPage: NextPage = () => {
 
 	const onCreateTeam = useCallback(() => {
 		const data: CreateTeamAPIBodyType = {
-			goal: teamGoal,
+			category: teamGoal,
 			skills: teamSkills,
 			name: teamName,
 			description: teamDesc
@@ -47,37 +49,66 @@ const HostPage: NextPage = () => {
 		(dispatch as Dispatch<any>)(createTeamAction(data));
 	}, [dispatch, teamDesc, teamGoal, teamName, teamSkills]);
 
-	//* team 생성 스탭 별 컴포넌트 목록
+	/** @description team 생성 스탭 별 컴포넌트 목록 */
 	const HOST_COMPONENT_DATA = useMemo(
 		() => ({
-			0: <TeamGoal onMoveToHostPage={onMoveToHostPage} />,
+			0: <TeamGoal onMoveToHostPage={onMoveToHostPage} onMoveToHome={onMoveToPage('/')} />,
 			1: <TeamSkillSeletor onMoveToHostPage={onMoveToHostPage} />,
 			2: <TeamName onMoveToHostPage={onMoveToHostPage} />,
-			3: <TeamDesc onMoveToHostPage={onMoveToHostPage} onOpenModal={onOpenModal} />,
+			3: <TeamDesc onOpenModal={onOpenCreateTeamModal} />,
 			4: <TeamSuccess />
 		}),
-		[onMoveToHostPage, onOpenModal]
+		[onMoveToPage, onMoveToHostPage, onOpenCreateTeamModal]
 	);
 
-	//* 해당 스탭에 컴포넌트 랜더링
+	/** @description 해당 스탭에 컴포넌트 랜더링 */
 	const HostComponent = useCallback(
 		() => HOST_COMPONENT_DATA[hostPageNum],
 		[HOST_COMPONENT_DATA, hostPageNum]
 	);
 
+	const preventClose = (e: BeforeUnloadEvent) => {
+		e.preventDefault();
+		e.returnValue = '';
+	};
+
+	/** @description host page내 새로고침 한번 더 확인 */
+	useEffect(() => {
+		window.addEventListener('beforeunload', preventClose);
+		return () => {
+			window.removeEventListener('beforeunload', preventClose);
+		};
+	}, []);
+
+	const skillListStyle: CSSProperties = useMemo(() => ({ display: 'flex', gap: '8px' }), []);
+
 	return (
 		<>
-			<HostContainer>
-				<Logo />
-				<Title>{HOST_PAGE_DATA[hostPageNum].title}</Title>
-				<HostContentWrapper>
-					<ProgressBar percent={HOST_PAGE_DATA[hostPageNum].percent} />
-					<HostComponent />
-				</HostContentWrapper>
-			</HostContainer>
-			<ModalPortal>
-				<CreateTeamModal onCreateTeam={onCreateTeam} onCloseModal={onCloseModal} />
-			</ModalPortal>
+			<HostLayout title={HOST_PAGE_DATA[hostPageNum].title}>
+				<ProgressBar percent={HOST_PAGE_DATA[hostPageNum].percent} />
+				<HostComponent />
+			</HostLayout>
+			<CreateTeamModalProtal>
+				<CommonModal
+					title="팀 생성하기"
+					closeButton="취소"
+					checkButton="팀만들기"
+					onCloseModal={onCloseCreateTeamModal}
+					onClickCheck={onCreateTeam}
+				>
+					<div style={skillListStyle}>
+						{teamSkills.map(skill =>
+							SKILLS.map(({ Icon, name }) => name === skill && <Icon width={30} height={30} />)
+						)}
+					</div>
+					<Text color="description">
+						팀 목적: {teamGoal === 'project' ? '팀 프로젝트' : '스터디'}
+					</Text>
+					<Text color="description">팀 이름: {teamName}</Text>
+					<Text color="description">팀 설명: {teamDesc}</Text>
+					<Text color="description">해당 정보가 맞는지 한번 더 확인해주세요!</Text>
+				</CommonModal>
+			</CreateTeamModalProtal>
 		</>
 	);
 };

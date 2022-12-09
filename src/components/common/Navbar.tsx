@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import styled from '@emotion/styled';
 import { Text } from '@with-me/ui';
-import type { NavItemType } from '@typings/common';
+import type { NavItemType } from '@src/types/common';
 
 interface NavbarProps {
 	items: NavItemType[];
